@@ -1,17 +1,19 @@
 {
-  "name": "awaschebot",
+  "name": "alel",
   "version": "1.0.0",
-  "description": "Bot untuk notifikasi jadwal pesan perkuliahan di STMIK Komputama",
+  "description": "Bot khusus mahasiswa TI-19 STMIK Komputama Majenang",
   "main": "main.js",
   "scripts": {
-    "test": "["
+    "start": "node main.js",
+    "test": "Test"
   },
   "keywords": [
-    "schedule",
-    "message",
+    "college",
+    "random",
     "bot",
-    "discord",
-    "free"
+    "stmikkomputama",
+    "group",
+    "majenang"
   ],
   "author": "Awal Ariansyah",
   "license": "ISC",
