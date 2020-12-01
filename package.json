@@ -1,0 +1,22 @@
+{
+  "name": "awaschebot",
+  "version": "1.0.0",
+  "description": "Bot untuk notifikasi jadwal pesan perkuliahan di STMIK Komputama",
+  "main": "main.js",
+  "scripts": {
+    "test": "["
+  },
+  "keywords": [
+    "schedule",
+    "message",
+    "bot",
+    "discord",
+    "free"
+  ],
+  "author": "Awal Ariansyah",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "discord.js": "^12.3.1"
+  }
+}
