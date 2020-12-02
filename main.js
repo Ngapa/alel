@@ -23,6 +23,26 @@ let rng = arr => {
     return arr;
 }
 
+client.on("guildMemberAdd", (member) => {
+    const welChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
+    let welEmbed = new Discord.MessageEmbed()
+                .setTitle(`Halo, ${member}`)
+                .setDescription(`Saya tidak tahu kenapa anda bisa tersasar kesini, apa motif dan tujuan anda bergabung kesini, tetapi yang jelas adalah paduka Awal Ariansyah meminta saya untuk menyambut tamu dengan sopan. \n Selamat menikmati!`)
+                .setColor(color[ic])
+                .setFooter('©️ Awal Ariansyah')
+    welChannel.send(welEmbed)
+})
+
+
+client.on("guildMemberRemove", (member) => {
+    const byeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
+    let byeEmbed = new Discord.MessageEmbed()
+                .setTitle(`Terima kasih, ${member}`)
+                .setDescription(`Saya tidak tahu kenapa anda keluar dari sini, apa penyebab dan tujuan anda keluar dari sini, tetapi yang jelas adalah paduka Awal Ariansyah meminta saya untuk mengucapkan selamat tinggal kepada tamu dengan sopan. \n Selamat jalan!`)
+                .setColor(color[ic])
+                .setFooter('©️ Awal Ariansyah')
+    byeChannel.send(byeEmbed)
+})
 
 //Command Parser
 client.on("message", (message) => {
