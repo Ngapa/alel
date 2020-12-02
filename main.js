@@ -24,6 +24,7 @@ let rng = arr => {
 }
 
 client.on("guildMemberAdd", (member) => {
+    let ic = Math.floor(Math.random() * color.length);
     const welChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
     let welEmbed = new Discord.MessageEmbed()
                 .setTitle(`Halo, ${member}`)
@@ -35,6 +36,7 @@ client.on("guildMemberAdd", (member) => {
 
 
 client.on("guildMemberRemove", (member) => {
+    let ic = Math.floor(Math.random() * color.length);
     const byeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
     let byeEmbed = new Discord.MessageEmbed()
                 .setTitle(`Terima kasih, ${member}`)
