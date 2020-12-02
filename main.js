@@ -75,7 +75,7 @@ client.on("message", (message) => {
 
     let buatGrup = function() {
         let anggota = parseInt(args[0])
-        if (num > 1 && num <= list.length) {
+        if (anggota > 1 && anggota <= list.length) {
             let result = new Array(Math.ceil(list.length / anggota))
                 .fill()
                 .map(_ => rng(list).splice(0, anggota));
