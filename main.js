@@ -14,27 +14,6 @@ client.once("ready", () => {
 
 //global var
 let color = [0, 1752220, 3066993, 3447003, 10181046, 15844367, 15105570, 15158332, 9807270, 8359053, 3426654, 1146986, 2067276, 2123412, 7419530, 12745742, 11027200, 10038562, 9936031, 12370112, 2899536, 16580705, 12320855]
-let list = [
-    'Resti Rahmawati',
-    'Putri Damayani',
-    'Edgar Miko F.',
-    'Ristianingsih',
-    'Amarulloh M.K.',
-    'Nurfadhli A.H',
-    'Elang Yakti W.',
-    'Khusna Salsabila',
-    'Henky Fajar S.',
-    'Noval Aldo R.',
-    'Rafiq Chasnan H.',
-    'Ina Kurnia Sari',
-    'Willy Setiawan',
-    'Awal Ariansyah',
-    'Diky Setiawan',
-    'Sri Purnama Sari',
-    'Imam Fahrudin',
-    'Khoirul Zuhri',
-    'Maknum Munib'
-]
 
 let rng = arr => {
     for (var i = arr.length - 1; i > 0; i--) {
@@ -75,10 +54,31 @@ client.on("message", (message) => {
 
     let buatGrup = function() {
         let anggota = parseInt(args[0])
-        if (anggota < 1 || anggota >= list.length){
-                return message.channel.send(`Maaf, perintah tidak dikenali.`)
-            }
-            let result = new Array(Math.ceil(list.length / anggota))
+        if (anggota < 1 || anggota >= 19){
+            return message.channel.send(`Maaf, perintah tidak dikenali.`)
+        }
+        let list = [
+            'Resti Rahmawati',
+            'Putri Damayani',
+            'Edgar Miko F.',
+            'Ristianingsih',
+            'Amarulloh M.K.',
+            'Nurfadhli A.H',
+            'Elang Yakti W.',
+            'Khusna Salsabila',
+            'Henky Fajar S.',
+            'Noval Aldo R.',
+            'Rafiq Chasnan H.',
+            'Ina Kurnia Sari',
+            'Willy Setiawan',
+            'Awal Ariansyah',
+            'Diky Setiawan',
+            'Sri Purnama Sari',
+            'Imam Fahrudin',
+            'Khoirul Zuhri',
+            'Maknum Munib'
+        ]
+            let result = new Array(Math.ceil(19 / anggota))
                 .fill()
                 .map(_ => rng(list).splice(0, anggota));
             message.channel.send(`**Laksanakan!**`)
