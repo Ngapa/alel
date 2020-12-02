@@ -75,7 +75,9 @@ client.on("message", (message) => {
 
     let buatGrup = function() {
         let anggota = parseInt(args[0])
-        if (anggota > 1 && anggota <= list.length) {
+        if (anggota < 1 || anggota >= list.length){
+                return message.channel.send(`Maaf, perintah tidak dikenali.`)
+            }
             let result = new Array(Math.ceil(list.length / anggota))
                 .fill()
                 .map(_ => rng(list).splice(0, anggota));
@@ -99,10 +101,6 @@ client.on("message", (message) => {
                 }
                 message.channel.send(grupEmbed)
             }
-        } else {
-            invalid();
-        }
-        return
     }
 
     let pilihMana = function(){
