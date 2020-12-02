@@ -70,13 +70,12 @@ client.on("message", (message) => {
     let halo = function() {
         const pengirim = message.author;
         return message.channel.send(`>>> Halo <@${pengirim.id}>!
-        **Alel** siap melaksanakan tugas! :wave:`);
+**Alel** siap melaksanakan tugas! :wave:`);
     }
 
     let buatGrup = function() {
-        let num = parseInt(args[0])
+        let anggota = parseInt(args[0])
         if (num > 1 && num <= list.length) {
-            let anggota = parseInt(args[0]);
             let result = new Array(Math.ceil(list.length / anggota))
                 .fill()
                 .map(_ => rng(list).splice(0, anggota));
@@ -88,7 +87,6 @@ client.on("message", (message) => {
                         .setTitle(args.join(' ').substring(2))
                     m.edit(titleEmbed)
                 })
-
             for (let i = 0; i < result.length; i++) {
                 let ic = Math.floor(Math.random() * color.length)
                 const grupEmbed = new Discord.MessageEmbed()
@@ -101,10 +99,10 @@ client.on("message", (message) => {
                 }
                 message.channel.send(grupEmbed)
             }
-            return
         } else {
             invalid();
         }
+        return
     }
 
     let pilihMana = function(){
