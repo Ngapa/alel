@@ -94,7 +94,8 @@ client.on("message", (message) => {
 **Alel** siap melaksanakan tugas! :wave:`);
     }
 
-    let buatGrup = function(kelompok) {
+    let buatGrup = function() {
+        let kelompok = [...mahasiswa]
         console.log(kelompok)
         let anggota = parseInt(args[0])
         if (anggota < 1 || anggota >= 19){
@@ -125,7 +126,8 @@ client.on("message", (message) => {
             }
     }
     
-    let buatKeluarga = function(keluarga){
+    let buatKeluarga = function(){
+        let keluarga = [...mahasiswa]
         console.log(keluarga);
         let kel = new Discord.MessageEmbed()
             .setAuthor('Keluarga berencana', 'https://ddo0fzhfvians.cloudfront.net/uploads/icons/png/6895864091582985684-512.png', 'https://www.youtube.com/watch?v=6NSQ2PKglb4')
@@ -195,10 +197,10 @@ Akses menu bantuan dengan \`alel help \``)
             halo();
             break;
         case "buatgrup":
-            buatGrup(mahasiswa);
+            buatGrup();
             break;
         case "buatkeluarga":
-            buatKeluarga(mahasiswa);
+            buatKeluarga();
             break;
         case "pilihmana":
             pilihMana();
