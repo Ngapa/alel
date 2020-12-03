@@ -182,11 +182,10 @@ Akses menu bantuan dengan \`alel help \``)
 
             message.channel.send(helpEmbed)
     }
-
+    
     let invalid = function() {
         return message.channel.send(`Maaf, perintah tidak dikenali.`)
     }
-
 
     //catcher
     switch (command) {
@@ -233,9 +232,15 @@ Akses menu bantuan dengan \`alel help \``)
 });
 
 // Arisan
-let arisan = new cron.CronJob('47 15 * * *', () => {
+let arisan = new cron.CronJob('0 7 * * *', () => {
         const aris = client.channels.cache.get("759964896066273316");
-        aris.send('Debuging cron job');
+        let ic = Math.floor(Math.random() * color.length);
+        let pemenang = mahasiswa[Math.floor(Math.random() * mahasiswa.length)];
+        const arisanEmbed = new Discord.MessageEmbed()
+            .setColor(color[ic])
+            .addField('Selamat!!',`Selamat kepada **${pemenang}** telah memenangkan arisan hari ini!\nSilakan mention paduka **Awal Ariansyah** untuk mendapatkan 50 Exp. Hadiah akan hangus dalam 12 jam!`)
+            .setFooter('Nantikan arisan berikutnya')
+        aris.send(arisanEmbed);
     },
     null,
     true,
