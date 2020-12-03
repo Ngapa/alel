@@ -96,7 +96,6 @@ client.on("message", (message) => {
 
     let buatGrup = function() {
         let kelompok = [...mahasiswa]
-        console.log(kelompok)
         let anggota = parseInt(args[0])
         if (anggota < 1 || anggota >= 19){
             return message.channel.send(`Maaf, perintah tidak dikenali.`)
@@ -128,7 +127,6 @@ client.on("message", (message) => {
     
     let buatKeluarga = function(){
         let keluarga = [...mahasiswa]
-        console.log(keluarga);
         let kel = new Discord.MessageEmbed()
             .setAuthor('Keluarga berencana', 'https://ddo0fzhfvians.cloudfront.net/uploads/icons/png/6895864091582985684-512.png', 'https://www.youtube.com/watch?v=6NSQ2PKglb4')
             .setColor('LUMINOUS_VIVID_PINK')
@@ -168,15 +166,16 @@ client.on("message", (message) => {
 Fitur-fitur yang ada antara lain:
 1. Melakukan ping
 2. Membuat random grup
-3. Memilih item acak
+3. Membuat keluarga palsu
+4. Memilih item acak
 
 Prefix yang dipakai adalah \`alel <perintah> \`
 Akses menu bantuan dengan \`alel help \``)
             .setColor(color[ic])
             .addField('1. ping', 'Penggunaan `alel ping`')
             .addField('2. buatgrup', 'Penggunaan `alel buatgrup <jumlahAnggota> <grupUntukApa>` \nContoh `alel buatgrup 4 Kelompok Islamic Studies`')
-            .addField('3. pilihmana', 'Penggunaan `alel pilihmana <itemsatu>,<itemdua>,<itemdst>` \nContoh `alel pilihmana Naruto, Sasuke, Kakashi`\nNB: List yang dipakai adalah list mahasiswa TI-19, fitur custom list belum diaplikasikan.')
-            .setTimestamp()
+            .addField('3. buatkeluarga', 'Penggunaan `alel buatkeluarga` ')
+            .addField('4. pilihmana', 'Penggunaan `alel pilihmana <itemsatu>,<itemdua>,<itemdst>` \nContoh `alel pilihmana Naruto, Sasuke, Kakashi`\n\nNB: List yang dipakai adalah list mahasiswa TI-19, fitur custom list belum diaplikasikan.')
             .setThumbnail('https://media.tenor.com/images/cb99fb8003fc51e3f9e71ba3555d64e6/tenor.gif')
             .setImage('https://i.imgur.com/eU48z3k.png')
             .setFooter('©️ Awal Ariansyah')
