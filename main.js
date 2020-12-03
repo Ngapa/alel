@@ -95,6 +95,7 @@ client.on("message", (message) => {
     }
 
     let buatGrup = function(kelompok) {
+        console.log(kelompok)
         let anggota = parseInt(args[0])
         if (anggota < 1 || anggota >= 19){
             return message.channel.send(`Maaf, perintah tidak dikenali.`)
@@ -125,7 +126,8 @@ client.on("message", (message) => {
     }
     
     let buatKeluarga = function(keluarga){
-        const kel = new Discord.MessageEmbed()
+        console.log(keluarga);
+        let kel = new Discord.MessageEmbed()
             .setAuthor('Keluarga berencana', 'https://ddo0fzhfvians.cloudfront.net/uploads/icons/png/6895864091582985684-512.png', 'https://www.youtube.com/watch?v=6NSQ2PKglb4')
             .setColor('LUMINOUS_VIVID_PINK')
             .addFields(
