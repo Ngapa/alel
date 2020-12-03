@@ -14,7 +14,27 @@ client.once("ready", () => {
 
 //global var
 let color = [0, 1752220, 3066993, 3447003, 10181046, 15844367, 15105570, 15158332, 9807270, 8359053, 3426654, 1146986, 2067276, 2123412, 7419530, 12745742, 11027200, 10038562, 9936031, 12370112, 2899536, 16580705, 12320855]
-
+let mahasiswa = [
+            'Resti Rahmawati',
+            'Putri Damayani',
+            'Edgar Miko F.',
+            'Ristianingsih',
+            'Amarulloh M.K.',
+            'Nurfadhli A.H',
+            'Elang Yakti W.',
+            'Khusna Salsabila',
+            'Henky Fajar S.',
+            'Noval Aldo R.',
+            'Rafiq Chasnan H.',
+            'Ina Kurnia Sari',
+            'Willy Setiawan',
+            'Awal Ariansyah',
+            'Diky Setiawan',
+            'Sri Purnama Sari',
+            'Imam Fahrudin',
+            'Khoirul Zuhri',
+            'Maknum Munib'
+        ]
 let rng = arr => {
     for (var i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -212,15 +232,15 @@ Akses menu bantuan dengan \`alel help \``)
     // }
 });
 
-// Scheduled Message
-// let manajemenBisnis = new cron.CronJob('0 47 21 * * 0', () => {
-
-//         const channel = client.channels.cache.get(config.channelId);
-//         channel.send('Tes jadwal dengan tanggal dan timezone jakarta');
-//     },
-//     null,
-//     true,
-//     'Asia/Jakarta'
-// );
+// Arisan
+let arisan = new cron.CronJob('36 15 * * *', () => {
+        const aris = message.guild.channels.find(channel => channel.name === "aula-serba-guna");
+        aris.send('Debuging cron job');
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+arisan.start();
 
 client.login(config.token);
