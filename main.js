@@ -94,14 +94,14 @@ client.on("message", (message) => {
 **Alel** siap melaksanakan tugas! :wave:`);
     }
 
-    let buatGrup = function() {
+    let buatGrup = function(kelompok) {
         let anggota = parseInt(args[0])
         if (anggota < 1 || anggota >= 19){
             return message.channel.send(`Maaf, perintah tidak dikenali.`)
         }
             let result = new Array(Math.ceil(19 / anggota))
                 .fill()
-                .map(_ => rng(mahasiswa).splice(0, anggota));
+                .map(_ => rng(kelompok).splice(0, anggota));
             message.channel.send(`**Laksanakan!**`)
                 .then(m => {
                     let ic = Math.floor(Math.random() * color.length)
@@ -124,17 +124,20 @@ client.on("message", (message) => {
             }
     }
     
-    let buatKeluarga = function(){
+    let buatKeluarga = function(keluarga){
         const keluarga = new Discord.MessageEmbed()
-            .setTitle(`Keluarga Berencana`)
+            .setAuthor('Keluarga berencana', 'https://ddo0fzhfvians.cloudfront.net/uploads/icons/png/6895864091582985684-512.png', 'https://www.youtube.com/watch?v=6NSQ2PKglb4')
             .setColor('LUMINOUS_VIVID_PINK')
             .addFields(
-            { name: 'Ayah', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
-            { name: 'Ibu', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
-            { name: 'Anak Pertama', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
-            { name: 'Anak Kedua', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
+            { name: 'Ayah', value: keluarga[Math.floor(Math.random() * mahasiswa.length)], inline: true },
+            { name: 'Ibu', value: keluarga[Math.floor(Math.random() * mahasiswa.length)], inline: true },
+            { name: '\u200B', value: '\u200B' },
+            { name: 'Anak Pertama', value: keluarga[Math.floor(Math.random() * mahasiswa.length)], inline: true },
+            { name: 'Anak Kedua', value: keluarga[Math.floor(Math.random() * mahasiswa.length)], inline: true },
             { name: '\u200B', value: '\u200B' },
             { name: 'Umur Perkawinan', value: Math.ceil(Math.random() * 100)+' Tahun' })
+            .setThumbnail('https://media.giphy.com/media/2voGcsEiAQUc2kn4sA/giphy.gif')
+            .setImage('https://www.pngkit.com/png/full/0-1334_happy-family-family-cartoon-transparent.png')
             .setFooter('Just for fun, do not take it seriously')
         message.channel.send(keluarga)
     }
@@ -190,10 +193,10 @@ Akses menu bantuan dengan \`alel help \``)
             halo();
             break;
         case "buatgrup":
-            buatGrup();
+            buatGrup(mahasiswa);
             break;
         case "buatkeluarga":
-            buatKeluarga();
+            buatKeluarga(mahasiswa);
             break;
         case "pilihmana":
             pilihMana();
