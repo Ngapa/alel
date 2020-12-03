@@ -233,8 +233,8 @@ Akses menu bantuan dengan \`alel help \``)
 });
 
 // Arisan
-let arisan = new cron.CronJob('36 15 * * *', () => {
-        const aris = message.guild.channels.find(channel => channel.name === "aula-serba-guna");
+let arisan = new cron.CronJob('41 15 * * *', () => {
+        const aris = client.channels.get("759964896066273316");
         aris.send('Debuging cron job');
     },
     null,
