@@ -129,7 +129,7 @@ client.on("message", (message) => {
             .setTitle(`Keluarga Berencana`)
             .setColor('LUMINOUS_VIVID_PINK')
             .addFields(
-            { name: 'Ayah', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline = true },
+            { name: 'Ayah', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
             { name: 'Ibu', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
             { name: 'Anak Pertama', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
             { name: 'Anak Kedua', value: mahasiswa[Math.floor(Math.random() * mahasiswa.length)], inline: true },
