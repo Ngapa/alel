@@ -125,7 +125,7 @@ client.on("message", (message) => {
     }
     
     let buatKeluarga = function(keluarga){
-        const keluarga = new Discord.MessageEmbed()
+        const kel = new Discord.MessageEmbed()
             .setAuthor('Keluarga berencana', 'https://ddo0fzhfvians.cloudfront.net/uploads/icons/png/6895864091582985684-512.png', 'https://www.youtube.com/watch?v=6NSQ2PKglb4')
             .setColor('LUMINOUS_VIVID_PINK')
             .addFields(
@@ -139,7 +139,7 @@ client.on("message", (message) => {
             .setThumbnail('https://media.giphy.com/media/2voGcsEiAQUc2kn4sA/giphy.gif')
             .setImage('https://www.pngkit.com/png/full/0-1334_happy-family-family-cartoon-transparent.png')
             .setFooter('Just for fun, do not take it seriously')
-        message.channel.send(keluarga)
+        message.channel.send(kel)
     }
     
     let pilihMana = function(){
