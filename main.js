@@ -233,14 +233,13 @@ Akses menu bantuan dengan \`alel help \``)
 });
 
 // Arisan
-let arisan = new cron.CronJob('41 15 * * *', () => {
-        const aris = client.channels.get("759964896066273316");
+let arisan = new cron.CronJob('47 15 * * *', () => {
+        const aris = client.channels.cache.get("759964896066273316");
         aris.send('Debuging cron job');
     },
     null,
     true,
     'Asia/Jakarta'
 );
-arisan.start();
 
 client.login(config.token);
