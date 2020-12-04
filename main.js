@@ -7,7 +7,7 @@ const cron = require('cron');
 client.once("ready", () => {
     console.log("Alel siap melaksanakan tugas!")
     client.user.setActivity("with Awal Ariansyah", {
-        type: "STREAMING",
+        type: "PLAYING",
         url: "https://www.fb.me/kurasu.yami"
     });
 });
