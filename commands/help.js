@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const { botName, botDescription, botPrefix, botAuthor, botLogo } = require('/app/config.json')
+const commandFiles = fs.readdirSync('./commands').filter( file => file.endsWith('.js'));
 
 module.exports = {
     name: 'help',

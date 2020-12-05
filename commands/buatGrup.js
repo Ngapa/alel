@@ -21,7 +21,7 @@ module.exports = {
         }
 
         let kelompok = mahasiswa.map(el => el.namaDepan);
-        let result = new Array(Math.ceil(mahasiswa.length / anggota))
+        let result = new Array(Math.ceil(kelompok.length / anggota))
             .fill()
             .map(_ => rng(kelompok).splice(0, anggota));
 
@@ -36,7 +36,7 @@ module.exports = {
         for (let i = 0; i < result.length; i++) {
             const grupEmbed = new Discord.MessageEmbed()
                 .setTitle(`Kelompok ${i+1}`)
-                .setDescription('—————————————————')
+                .setDescription('#########')
                 .setColor('RANDOM')
 
             for (let j = 0; j < result[i].length; j++) {
