@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const path = require('path');
 
 const { botPrefix, botName, botLogo, botDescription, botAuthor } = require('./config.json');
 const cron = require('cron');

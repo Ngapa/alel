@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const mhs = require(./../data/mhs.json);
+const mhs = require(__dirname/data/mhs.json);
 
 module.exports = {
     name: 'buatkeluarga',
