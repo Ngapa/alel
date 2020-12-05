@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const path = require('path');
 
 const { botPrefix, botName, botLogo, botDescription, botAuthor } = require('./config.json');
 const cron = require('cron');
@@ -13,14 +12,6 @@ const commandFiles = fs.readdirSync('./commands').filter( file => file.endsWith(
 for( const file of commandFiles){
     const command = require(`./commands/${file}`)
     client.commands.set(command.name, command)
-}
-
-const rng = arr => {
-    for (var i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]]
-    }
-    return arr;
 }
 
 client.once("ready", () => {
