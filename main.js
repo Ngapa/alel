@@ -63,8 +63,8 @@ client.on("message", message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
 
-    if(!client.commands.has(command)) return;
     const command = client.commands.get(commandName)
+    if(!client.commands.has(command)) return;
 
     try{
         command.execute(message, args)
