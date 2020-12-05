@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const {prefix} = require('./config.json');
 const cron = require('cron');
 
+const dir = process.cwd();
+
 const fs = require('fs');
 client.commands = new Discord.Collection();
 
