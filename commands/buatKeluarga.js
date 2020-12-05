@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
-//const mhs = require(__dirname/data/mhs.json);
+const path = require('path');
+const mhs = require('/data/mhs.json');
 
 module.exports = {
     name: 'buatkeluarga',
     description: 'Perintah untuk membuat keluarga rekayasa secara acak',
     execute(message, args) {
-        message.channel.send(__dirname)
         let keluarga = mhs.map(el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
         
         let keluargaEmbed = new Discord.MessageEmbed()
