@@ -1,4 +1,7 @@
 {
 	"prefix": "alel ",
-	"token"	: "NzYwMTU1NjgzNjgwNTUwOTY0.X3H8JQ.7BT_w4s1C4M_h74_IU2sgOT9vpU"
+	"name": "Alel",
+	"logo": "https://i.imgur.com/eU48z3k.png",
+	"description": "Alel adalah sebuah bot yang dibuat khusus sebagai sarana bantuan untuk mahasiswa TI-19 STMIK Komputama Majenang.",
+	"author": "Awal Ariansyah"
 }
