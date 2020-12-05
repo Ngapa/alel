@@ -5,7 +5,7 @@ const commandFiles = fs.readdirSync('./commands').filter( file => file.endsWith(
 
 module.exports = {
     name: 'help',
-    description: 'Perintah untuk menampilkan menu bantuan Alel',
+    description: 'Perintah untuk menampilkan menu bantuan Alel | ` alel help `',
     execute(message, args) {
  
         const helpEmbed = new Discord.MessageEmbed()
@@ -13,11 +13,12 @@ module.exports = {
             .setAuthor(botName)
             .setDescription(botDescription)
             .setColor('RANDOM')
+            .addField('\u200B','\u200B')
             .addField('Prefix', `${botPrefix} <perintah>`)
             .addField('\u200B','\u200B')
             .setThumbnail('https://media.tenor.com/images/cb99fb8003fc51e3f9e71ba3555d64e6/tenor.gif')
             .setImage(botLogo)
-            .setFooter(botAuthor)
+            .setFooter(`dibuat oleh ${botAuthor} | 2020`)
 
         let index = 1;
         

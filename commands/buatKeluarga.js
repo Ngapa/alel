@@ -3,7 +3,7 @@ const mhs = require('/app/data/mhs.json');
 
 module.exports = {
     name: 'buatkeluarga',
-    description: 'Perintah untuk membuat keluarga rekayasa secara acak',
+    description: 'Perintah untuk membuat keluarga rekayasa secara acak | ` alel buatkeluarga `',
     execute(message, args) {
         let keluarga = mhs.map(el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
         

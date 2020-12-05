@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'ping',
-    description: 'Perintah melakukan ping koneksi',
+    description: 'Perintah melakukan ping koneksi | ` alel ping `',
     execute(message, args) {
         message.channel.send('Mencoba ping...').then(m => {
             let ping = m.createdTimestamp - message.createdTimestamp;

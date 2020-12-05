@@ -11,7 +11,7 @@ const rng = arr => {
 
 module.exports = {
     name: 'buatgrup',
-    description: 'Perintah untuk membagi kelompok ke-n anggota',
+    description: 'Perintah untuk membagi kelompok ke-n anggota | ` alel buatgrup <jumlahAnggota> <grupApa> `',
     args: true,
     execute(message, args) {
         let anggota = parseInt(args[0])
