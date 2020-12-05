@@ -2,7 +2,7 @@ module.exports = {
     name: 'help',
     description: 'Perintah untuk menampilkan menu bantuan Alel',
     execute(message, args) {
-        const { prefix, name, logo, description, author } = require(./config.json);
+        const { prefix, name, logo, description, author } = require(../config.json);
 
         const helpEmbed = new Discord.MessageEmbed()
             .setTitle(`Menu Bantuan Alel`)
