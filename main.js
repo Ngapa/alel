@@ -1,10 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const {prefix} = require('./config.json');
+const { botPrefix, botName, botLogo, botDescription, botAuthor } = require('./config.json');
 const cron = require('cron');
-
-const dir = process.cwd();
 
 const fs = require('fs');
 client.commands = new Discord.Collection();
@@ -13,7 +11,7 @@ const commandFiles = fs.readdirSync('./commands').filter( file => file.endsWith(
 
 for( const file of commandFiles){
     const command = require(`./commands/${file}`)
-    client.commands.set(command.name, command)
+    client.commands.set(command.name.toLowerCase(), command)
 }
 
 const rng = arr => {
@@ -31,6 +29,24 @@ client.once("ready", () => {
         url: "https://www.fb.me/kurasu.yami"
     });
 });
+
+client.on("message", message => {
+    if (!message.content.startsWith(botPrefix) || message.author.bot) return;
+    
+    const args = message.content.slice(botPrefix.length).trim().split(/ +/);
+    const commandName = args.shift().toLowerCase();
+
+    if(!client.commands.has(commandName)) return;
+    const command = client.commands.get(commandName)
+
+    try{
+        command.execute(message, args)
+    }catch(error){
+        console.error(error);
+        message.reply('Maaf, perintah tidak dikenali!');
+    }
+});
+
 
 client.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
@@ -56,23 +72,6 @@ client.on("guildMemberRemove", member => {
 
     byeChannel.send(byeEmbed)
 })
-
-client.on("message", message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-    
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const commandName = args.shift().toLowerCase();
-
-    const command = client.commands.get(commandName)
-    if(!client.commands.has(command)) return;
-
-    try{
-        command.execute(message, args)
-    }catch(error){
-        console.error(error);
-        message.reply('Maaf, perintah tidak dikenali!');
-    }
-});
 
 const arisan = new cron.CronJob('0 7 * * *', () => {
         const arisanChannel = client.channels.cache.get("759964896066273316");

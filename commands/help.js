@@ -2,24 +2,22 @@ module.exports = {
     name: 'help',
     description: 'Perintah untuk menampilkan menu bantuan Alel',
     execute(message, args) {
-    	const dr = dir;
-        const { prefix, name, logo, description, author } = require(dr/config.json);
-
+ 
         const helpEmbed = new Discord.MessageEmbed()
             .setTitle(`Menu Bantuan Alel`)
-            .setAuthor(name)
-            .setDescription(description)
+            .setAuthor(botName)
+            .setDescription(botDescription)
             .setColor('RANDOM')
-            .addField('Prefix', `${prefix} <perintah>`)
+            .addField('Prefix', `${botPrefix} <perintah>`)
             .addField('\u200B','\u200B')
             .setThumbnail('https://media.tenor.com/images/cb99fb8003fc51e3f9e71ba3555d64e6/tenor.gif')
-            .setImage(logo)
-            .setFooter(author)
+            .setImage(botLogo)
+            .setFooter(botAuthor)
 
         const index = 1;
         
         for (const com of commandFiles) {
-            const alelCommand = require(`./commands/${com}`)
+            const alelCommand = require(`./${com}`)
             helpEmbed.addField(`${index}. ${alelCommand.name}`, alelCommand.description)
         	
         	index++
