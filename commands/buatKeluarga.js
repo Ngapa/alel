@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'buatKeluarga',
+    name: 'buatkeluarga',
     description: 'Perintah untuk membuat keluarga rekayasa secara acak',
     execute(message, args) {
         let keluarga = mhs.map(el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)

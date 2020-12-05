@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'pilihMana',
+	name: 'pilihmana',
 	description: 'Perintah untuk meminta Alel memilih dari beberapa pilihan',
 	execute(message, args){
 		let choice = args.join('').split(/,+/)
