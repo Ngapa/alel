@@ -90,4 +90,4 @@ const arisan = new cron.CronJob('0 7 * * *', () => {
     'Asia/Jakarta'
 );
 
-client.login(process.env.TOKEN);
+client.login('NzYwMTU1NjgzNjgwNTUwOTY0.X3H8JQ.7BT_w4s1C4M_h74_IU2sgOT9vpU');

@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
 	name: 'pilihmana',
 	description: 'Perintah untuk meminta Alel memilih dari beberapa pilihan',
@@ -7,7 +9,7 @@ module.exports = {
         
         return message.channel.send('Alel lebih milih...').then(m => {
             let embedPilihan = new Discord.MessageEmbed()
-                .setTitle(`**${choice[myChoice]}**`)
+                .setTitle(`**${myChoice}**`)
                 .setColor('RANDOM')
 
             m.edit(embedPilihan)

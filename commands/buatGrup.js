@@ -1,10 +1,12 @@
+const Discord = require('discord.js');
+const mahasiswa = require(./../data/mhs.json);
+
 module.exports = {
-    name: 'buatGrup',
+    name: 'buatgrup',
     description: 'Perintah untuk membagi kelompok ke-n anggota',
     args: true,
     execute(message, args) {
         let anggota = parseInt(args[0])
-        let mahasiswa = require('data/mhs.json')
 
         if (anggota < 1 || anggota >= mahasiswa.length) {
             return message.reply(`Maaf, perintah tidak dikenali!`)

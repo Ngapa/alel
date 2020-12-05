@@ -1,3 +1,6 @@
+const Discord = require('discord.js');
+const mhs = require(./../data/mhs.json);
+
 module.exports = {
     name: 'buatkeluarga',
     description: 'Perintah untuk membuat keluarga rekayasa secara acak',
@@ -14,7 +17,6 @@ module.exports = {
                 { name: 'Anak Kedua', value: keluarga[Math.floor(Math.random() * keluarga.length)], inline: false },
                 { name: 'Umur Perkawinan', value: Math.ceil(Math.random() * 60) + ' Tahun' })
             .setThumbnail('https://media.giphy.com/media/2voGcsEiAQUc2kn4sA/giphy.gif')
-            .setImage('https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/6948/happy-family-clipart-md.png')
             .setFooter('Just for fun, do not take it seriously')
 
         message.channel.send(keluargaEmbed)
