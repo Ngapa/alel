@@ -19,7 +19,7 @@ module.exports = {
             .setImage(botLogo)
             .setFooter(botAuthor)
 
-        const index = 1;
+        let index = 1;
         
         for (const com of commandFiles) {
             const alelCommand = require(`./${com}`)
