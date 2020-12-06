@@ -5,7 +5,7 @@ const commandFiles = fs.readdirSync('./commands').filter( file => file.endsWith(
 
 module.exports = {
     name: 'help',
-    description: 'Perintah untuk menampilkan menu bantuan Alel | ` alel help `',
+    description: 'Perintah untuk menampilkan menu bantuan Alel.\n` alel help `',
     execute(message, args) {
  
         const helpEmbed = new Discord.MessageEmbed()
