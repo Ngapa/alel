@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 module.exports = {
-    async run(member){
+    run(member){
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
 
         const welcomeEmbed = new Discord.MessageEmbed()

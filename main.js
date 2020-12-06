@@ -42,7 +42,7 @@ fs.readdir('./events/', (error, files) => {
     });
 });
 
-client.on("message", async message => {
+client.on("message", message => {
     if (!message.content.startsWith(botPrefix) || message.author.bot) return;
     
     const args = message.content.slice(botPrefix.length).trim().split(/ +/);
