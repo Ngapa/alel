@@ -16,29 +16,14 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command)
 }
 
-// client.once("ready", () => {
-//     console.log("Alel siap melaksanakan tugas!")
-//     client.user.setActivity("bantuan | alel help", {
-//         type: "PLAYING",
-//         url: "https://www.fb.me/kurasu.yami"
-//     });
-// });
+client.once("ready", () => {
+    console.log("Alel siap melaksanakan tugas!")
+    client.user.setActivity("bantuan | alel help", {
+        type: "PLAYING",
+        url: "https://www.fb.me/kurasu.yami"
+    });
+});
 
-fs.readdir('./events/', (error, files) => {
-    if (error) return console.error(error);
-    files.forEach(file => {
-        let dir = 'events'
-        let eventName = file.substring(0, file.indexOf(".js"));
-        try {
-            let eventModule = require(path.join(__dirname, dir, file));
-            client.on(eventName, eventModule.bind(null, client));
-
-        } catch (err) {
-            console.log(err);
-
-        }
-    })
-})
 
 client.on("message", message => {
     if (!message.content.startsWith(botPrefix) || message.author.bot) return;
@@ -58,30 +43,30 @@ client.on("message", message => {
 });
 
 
-// client.on("guildMemberAdd", member => {
-//     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
+client.on("guildMemberAdd", member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
 
-//     const welcomeEmbed = new Discord.MessageEmbed()
-//         .setTitle(`Halo, ${member.user.username}`)
-//         .setDescription(`Selamat datang di server kami. Silakan buka pin message diatas untuk melihat informasi mengenai server ini.\n**Selamat bergabung, ${member}**.`)
-//         .setColor('RANDOM')
-//         .setFooter('© Alel')
+    const welcomeEmbed = new Discord.MessageEmbed()
+        .setTitle(`Halo, ${member.user.username}`)
+        .setDescription(`Selamat datang di server kami. Silakan buka pin message diatas untuk melihat informasi mengenai server ini.\n**Selamat bergabung, ${member}**.`)
+        .setColor('RANDOM')
+        .setFooter('© Alel')
 
-//     welcomeChannel.send(welcomeEmbed)
-// })
+    welcomeChannel.send(welcomeEmbed)
+})
 
 
-// client.on("guildMemberRemove", member => {
-//     const byeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
+client.on("guildMemberRemove", member => {
+    const byeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome-and-rules')
 
-//     const byeEmbed = new Discord.MessageEmbed()
-//         .setTitle(`Terima kasih, ${member.user.username}`)
-//         .setDescription(`Kami memohon maaf atas kekurangan dan kesalahan yang terdapat di server kami.\n**Selamat jalan.**`)
-//         .setColor('RANDOM')
-//         .setFooter('©️ Alel')
+    const byeEmbed = new Discord.MessageEmbed()
+        .setTitle(`Terima kasih, ${member.user.username}`)
+        .setDescription(`Kami memohon maaf atas kekurangan dan kesalahan yang terdapat di server kami.\n**Selamat jalan.**`)
+        .setColor('RANDOM')
+        .setFooter('©️ Alel')
 
-//     byeChannel.send(byeEmbed)
-// })
+    byeChannel.send(byeEmbed)
+})
 
 const arisan = new cron.CronJob('0 7 * * *', () => {
         const arisanChannel = client.channels.cache.get("759964896066273316");
@@ -94,6 +79,112 @@ const arisan = new cron.CronJob('0 7 * * *', () => {
             .setFooter('Nantikan undian arisan berikutnya!')
 
         arisanChannel.send(arisanEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const absensiChannel = client.channels.cache.get("760086156842106901");
+
+const sistemOperasi = new cron.CronJob('* 35 9 * * 1', () => {
+       const soEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Ping', 'Sistem Operasi, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(soEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const bahasaInggris = new cron.CronJob('* 25 7 * * 2', () => {
+        const bingEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Pong', 'Bahasa Inggris, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(bingEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const pemWeb = new cron.CronJob('* 35 9 * * 2', () => {
+        const pwebEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Ba', 'Pemrograman Web, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(pwebEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const dasarRPL = new cron.CronJob('* 25 7 * * 3', () => {
+        const rplEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Dum', 'Dasar RPL,, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(rplEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const islamicStudies = new cron.CronJob('* 35 9 * * 3', () => {
+        const isEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Ba', 'Islamic Studies 2, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(isEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const aljabar = new cron.CronJob('* 25 7 * * 4', () => {
+        const aljEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Boom', 'Aljabar Linier dan Matriks, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(aljEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const basisData = new cron.CronJob('* 35 9 * * 4', () => {
+        const bdataEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Ba', 'Basis Data Lanjutan, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(bdataEmbed);
+    },
+    null,
+    true,
+    'Asia/Jakarta'
+);
+
+const bisnis = new cron.CronJob('* 35 9 * * 5', () => {
+        const bisnisEmbed = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .addField('Ba', 'Manajemen Bisnis, 5 menit lagi @everyone')
+            .setFooter('Jangan lupa mandi!')
+
+        absensiChannel.send(bisnisEmbed);
     },
     null,
     true,
