@@ -10,15 +10,12 @@ module.exports = {
  
         const helpEmbed = new Discord.MessageEmbed()
             .setTitle(`Menu Bantuan Alel`)
-            .setAuthor(botName)
+            .setAuthor(botName, botLogo)
             .setDescription(botDescription)
             .setColor('RANDOM')
-            .addField('\u200B','\u200B')
-            .addField('Prefix', `${botPrefix} <perintah>`)
-            .addField('\u200B','\u200B')
+            .addField('Prefix', `\` ${botPrefix} <perintah> \``)
             .setThumbnail('https://media.tenor.com/images/cb99fb8003fc51e3f9e71ba3555d64e6/tenor.gif')
-            .setImage(botLogo)
-            .setFooter(`dibuat oleh ${botAuthor} | 2020`)
+            .setFooter(`Dibuat oleh ${botAuthor} | 2020`)
 
         let index = 1;
         
