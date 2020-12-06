@@ -27,6 +27,7 @@ for (const file of commandFiles) {
 fs.readdir('./events/', (error, files) => {
     if (error) return console.error(error);
     files.forEach(file => {
+        let dir = 'events'
         let eventName = file.substring(0, file.indexOf(".js"));
         try {
             let eventModule = require(path.join(__dirname, dir, file));
