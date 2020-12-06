@@ -1,5 +1,5 @@
-module.exports { 
-	async run = (client) => {
+module.exports = { 
+	async run(client){
 	console.log("Alel siap melaksanakan tugas!")
     client.user.setActivity("bantuan | alel help", {
         type: "PLAYING",
