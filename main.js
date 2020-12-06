@@ -24,7 +24,7 @@ for( const file of commandFiles){
 // });
 
 fs.readdir('./events/', (error, files) => {
-    if (err) return console.error(error);
+    if (error) return console.error(error);
     files.forEach(file => {
         const eventFunction = require(`./events/${file}`);
         if (eventFunction.disabled) return; // Check if the eventFunction is disabled. If yes return without any error
