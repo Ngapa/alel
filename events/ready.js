@@ -1,3 +1,5 @@
+const client = new Discord.Client();
+
 module.exports = { 
 	async run(client){
 	console.log("Alel siap melaksanakan tugas!")
