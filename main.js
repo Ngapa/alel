@@ -35,7 +35,7 @@ fs.readdir('./events/', (error, files) => {
 
         // Try catch block to throw an error if the code in try{} doesn't work
         try {
-            emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.run(...args)); // Run the event using the above defined emitter (client)
+            emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.execute(...args)); // Run the event using the above defined emitter (client)
         } catch (error) {
             console.error(error.stack); // If there is an error, console log the error stack message
         }

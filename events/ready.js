@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 module.exports = { 
-	run(client){
+	execute(client){
 	console.log("Alel siap melaksanakan tugas!")
     client.user.setActivity("bantuan | alel help", {
         type: "PLAYING",
