@@ -1,10 +1,7 @@
-const Discord = require('discord.js');
-const mhs = require('/app/data/mhs.json');
-
 module.exports = {
     name: 'buatkeluarga',
     description: 'Perintah untuk membuat keluarga rekayasa secara acak.\n` alel buatkeluarga `',
-    execute(message, args) {
+    execute(message, args, Discord, mhs) {
         let keluarga = mhs.map(el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
         
         let keluargaEmbed = new Discord.MessageEmbed()
@@ -17,7 +14,7 @@ module.exports = {
                 { name: 'Anak Kedua', value: keluarga[Math.floor(Math.random() * keluarga.length)], inline: false },
                 { name: 'Umur Perkawinan', value: Math.ceil(Math.random() * 60) + ' Tahun' })
             .setThumbnail('https://media.giphy.com/media/2voGcsEiAQUc2kn4sA/giphy.gif')
-            .setFooter('Just for fun, do not take it seriously')
+            .setFooter('Hanya untuk bercanda, jangan ditanggapi serius')
 
         message.channel.send(keluargaEmbed)
     },

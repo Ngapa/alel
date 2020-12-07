@@ -1,9 +1,7 @@
-const Discord = require('discord.js');
-
 module.exports = {
     name: 'ping',
     description: 'Perintah melakukan ping koneksi.\n` alel ping `',
-    execute(message, args) {
+    execute(message, args, Discord) {
         message.channel.send('Mencoba ping...').then(m => {
             let ping = m.createdTimestamp - message.createdTimestamp;
             let pingEmbed = new Discord.MessageEmbed()

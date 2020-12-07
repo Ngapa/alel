@@ -1,12 +1,11 @@
-const Discord = require('discord.js');
-const { botName, botDescription, botPrefix, botAuthor, botLogo } = require('/app/config.json')
+const { botName, botDescription, botPrefix, botAuthor, botLogo } = require('./../config.json')
 const fs = require('fs');
 const commandFiles = fs.readdirSync('./commands').filter( file => file.endsWith('.js'));
 
 module.exports = {
     name: 'help',
     description: 'Perintah untuk menampilkan menu bantuan Alel.\n` alel help `',
-    execute(message, args) {
+    execute(message, args, Discord) {
  
         const helpEmbed = new Discord.MessageEmbed()
             .setTitle(`Menu Bantuan Alel`)
@@ -22,8 +21,8 @@ module.exports = {
         for (const com of commandFiles) {
             const alelCommand = require(`./${com}`)
             helpEmbed.addField(`${index}. ${alelCommand.name}`, alelCommand.description)
-        	
-        	index++
+            
+            index++
         }
 
         message.channel.send(helpEmbed)

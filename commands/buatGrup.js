@@ -1,6 +1,3 @@
-const Discord = require('discord.js');
-const mahasiswa = require('/app/data/mhs.json');
-
 const rng = arr => {
     for (var i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -13,7 +10,8 @@ module.exports = {
     name: 'buatgrup',
     description: 'Perintah untuk membagi kelompok sebanyak-n anggota.\n` alel buatgrup <jumlahAnggota> <grupApa> `',
     args: true,
-    execute(message, args) {
+    execute(message, args, Discord, mhs) {
+        let mahasiswa = mhs;
         let anggota = parseInt(args[0])
 
         if (anggota < 1 || anggota >= mahasiswa.length) {
@@ -36,12 +34,18 @@ module.exports = {
         for (let i = 0; i < result.length; i++) {
             const grupEmbed = new Discord.MessageEmbed()
                 .setTitle(`Kelompok ${i+1}`)
-                .setDescription('#########')
                 .setColor('RANDOM')
 
-            for (let j = 0; j < result[i].length; j++) {
-                grupEmbed.addField(`${j+1}. ${result[i][j]}`, '———', false)
-            }
+                let capture = ``;
+                let first = ``;
+                for (let j = 0; j < result[i].length; j++) {
+                    if( j == 0){
+                        first += `${j+1}. ${result[i][j]}\n`
+                    }else{
+                        capture += `${j+1}. ${result[i][j]}\n`
+                    }
+                }
+                 grupEmbed.addField(first, capture, false)
 
             message.channel.send(grupEmbed)
         }

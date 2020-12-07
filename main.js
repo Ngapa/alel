@@ -35,7 +35,7 @@ client.on("message", message => {
     const command = client.commands.get(commandName)
 
     try {
-        command.execute(message, args)
+        command.execute(message, args, Discord, mhs)
     } catch (error) {
         console.error(error);
         message.reply('Maaf, perintah tidak dikenali!');
