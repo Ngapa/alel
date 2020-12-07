@@ -5,10 +5,19 @@ module.exports = {
 	execute(message, args, Discord){
 		const dosen = require('/app/data/dosen.json')
 
-		const keyword = args[0].toLowerCase();
-		const dosenObj = dosen.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
+		const keyword = args.join(' ').toLowerCase();
+		let dosenObj = dosen.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
 
-		if (dosenObj == 0) return message.reply('Mohon maaf pencarian tidak ditemukan.');
+		if (dosenObj == 0){ 
+			const dos = dosen.map( el => el.namaDepan = `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
+			let dosenObj = dos.filter(el => Object.entries(el).flat().map( el => el.toLowerCase()).map( el => el.trim()).includes(keyword))
+			
+			if (dosenObj == 0){ return message.reply('Mohon maaf pencarian tidak ditemukan.')}
+		}else{
+			
+			return message.reply('Mohon maaf pencarian tidak ditemukan.')
+		}
+
 		dosenObj.forEach( result => {
 		const words = `${result.namaDepan} ${result.namaTengah} ${result.namaBelakang}`;
 
