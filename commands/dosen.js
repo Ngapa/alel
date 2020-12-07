@@ -12,14 +12,14 @@ module.exports = {
 			const dos = dosen.map( el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
 			console.log(dos);
 
-			let dosenObj = dos.filter(el => Object.entries(el).flat().map( el => el.toLowerCase()).map( el => el.trim()).includes(keyword)).split(' ')
+			dosenObj = dos.filter(el => Object.entries(el).flat().map( el => el.toLowerCase()).map( el => el.trim()).includes(keyword)).split(' ')
 			console.log(dosenObj)
 
 			if (dosenObj == 0){ 
 				return message.reply('mohon maaf pencarian tidak ditemukan.')
 			}
 
-			let dosenObj = dosen.filter(el => el.namaDepan == dosenObj[0] || el.namaTengah == dosenObj[1] || el.namaTengah == dosenObj[2] )
+			dosenObj = dosen.filter(el => el.namaDepan == dosenObj[0] || el.namaTengah == dosenObj[1] || el.namaTengah == dosenObj[2] )
 		}
 
 		dosenObj.forEach( result => {
