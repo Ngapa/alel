@@ -7,15 +7,12 @@ module.exports ={
 		const midName = mhs.map(el => el.namaTengah)
 
 		const lastName = mhs.map(el => el.namaBelakang)
-
 		const names = `${firstName[Math.ceil(Math.random() * firstName.length-1)]} ${midName[Math.ceil(Math.random() * midName.length-1)]} ${lastName[Math.ceil(Math.random() * lastName.length-1)]}`
-		const result = names.trim().split(' ').map( name => name[0].toUpperCase() + name.substring(1)).join(' ')
-
 
 		message.channel.send('Kamu akan terlahir kembali dengan nama:')
 		const nameEmbed = new Discord.MessageEmbed()
 			.setColor('RANDOM')
-			.setTitle(result)
+			.setTitle(names)
 
 		message.channel.send(nameEmbed)
 	}
