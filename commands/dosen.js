@@ -9,7 +9,7 @@ module.exports = {
 		let dosenObj = dosen.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
 
 		if (dosenObj == 0){ 
-			const dos = dosen.map( el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
+			let dos = dosen.map( el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
 			console.log(dos);
 
 			dos = dos.map( el => el.trim())
