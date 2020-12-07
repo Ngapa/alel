@@ -6,7 +6,7 @@ module.exports = {
 		const keyword = args[0].toLowerCase();
 		const mhsObj = mhs.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
 
-		if (mhsObj == 0) return message.reply('Mohon maaf pencarian tidak ditemukan.');
+		if (mhsObj == 0) return message.reply('mohon maaf pencarian tidak ditemukan.');
 		mhsObj.forEach( result => {
 		const words = `${result.namaDepan} ${result.namaTengah} ${result.namaBelakang}`;
 
