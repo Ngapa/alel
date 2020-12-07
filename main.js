@@ -87,7 +87,7 @@ const arisan = new cron.CronJob('0 7 * * *', () => {
 
 const absensiChannel = client.channels.cache.get("760086156842106901");
 
-const sistemOperasi = new cron.CronJob('* 35 9 * * 1', () => {
+const sistemOperasi = new cron.CronJob('35 9 * * 1', () => {
        const soEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ping', 'Sistem Operasi, 5 menit lagi @everyone')
@@ -100,7 +100,7 @@ const sistemOperasi = new cron.CronJob('* 35 9 * * 1', () => {
     'Asia/Jakarta'
 );
 
-const bahasaInggris = new cron.CronJob('* 25 7 * * 2', () => {
+const bahasaInggris = new cron.CronJob('25 7 * * 2', () => {
         const bingEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Pong', 'Bahasa Inggris, 5 menit lagi @everyone')
@@ -113,7 +113,7 @@ const bahasaInggris = new cron.CronJob('* 25 7 * * 2', () => {
     'Asia/Jakarta'
 );
 
-const pemWeb = new cron.CronJob('* 35 9 * * 2', () => {
+const pemWeb = new cron.CronJob('35 9 * * 2', () => {
         const pwebEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Pemrograman Web, 5 menit lagi @everyone')
@@ -126,7 +126,7 @@ const pemWeb = new cron.CronJob('* 35 9 * * 2', () => {
     'Asia/Jakarta'
 );
 
-const dasarRPL = new cron.CronJob('* 25 7 * * 3', () => {
+const dasarRPL = new cron.CronJob('25 7 * * 3', () => {
         const rplEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Dum', 'Dasar RPL,, 5 menit lagi @everyone')
@@ -139,7 +139,7 @@ const dasarRPL = new cron.CronJob('* 25 7 * * 3', () => {
     'Asia/Jakarta'
 );
 
-const islamicStudies = new cron.CronJob('* 35 9 * * 3', () => {
+const islamicStudies = new cron.CronJob('35 9 * * 3', () => {
         const isEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Islamic Studies 2, 5 menit lagi @everyone')
@@ -152,7 +152,7 @@ const islamicStudies = new cron.CronJob('* 35 9 * * 3', () => {
     'Asia/Jakarta'
 );
 
-const aljabar = new cron.CronJob('* 25 7 * * 4', () => {
+const aljabar = new cron.CronJob('25 7 * * 4', () => {
         const aljEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Boom', 'Aljabar Linier dan Matriks, 5 menit lagi @everyone')
@@ -165,7 +165,7 @@ const aljabar = new cron.CronJob('* 25 7 * * 4', () => {
     'Asia/Jakarta'
 );
 
-const basisData = new cron.CronJob('* 35 9 * * 4', () => {
+const basisData = new cron.CronJob('35 9 * * 4', () => {
         const bdataEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Basis Data Lanjutan, 5 menit lagi @everyone')
@@ -178,7 +178,7 @@ const basisData = new cron.CronJob('* 35 9 * * 4', () => {
     'Asia/Jakarta'
 );
 
-const bisnis = new cron.CronJob('* 35 9 * * 5', () => {
+const bisnis = new cron.CronJob('35 9 * * 5', () => {
         const bisnisEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Manajemen Bisnis, 5 menit lagi @everyone')
