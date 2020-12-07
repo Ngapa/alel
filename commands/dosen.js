@@ -12,7 +12,7 @@ module.exports = {
 			const dos = dosen.map( el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
 			console.log(dos);
 
-			dos = dos.trim()
+			dos = dos.map( el => el.trim())
 
 			dosenObj = dos.filter(el => el === keyword)
 			console.log(dosenObj)
