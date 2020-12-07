@@ -8,7 +8,7 @@ module.exports = {
 		const keyword = args[0].toLowerCase();
 		const dosenObj = dosen.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
 
-		if (mhsObj == 0) return message.reply('Mohon maaf pencarian tidak ditemukan.');
+		if (dosenObj == 0) return message.reply('Mohon maaf pencarian tidak ditemukan.');
 		dosenObj.forEach( result => {
 		const words = `${result.namaDepan} ${result.namaTengah} ${result.namaBelakang}`;
 
