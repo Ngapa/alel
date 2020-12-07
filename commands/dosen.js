@@ -12,9 +12,9 @@ module.exports = {
 			let dos = dosen.map( el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
 			console.log(dos);
 
-			dos = dos.map( el => el.trim())
+			dos = dos.map( el => el.trim().toLowerCase())
 
-			dosenObj = dos.filter(el => el === keyword)
+			dosenObj = dos.filter(el => el == keyword)
 			console.log(dosenObj)
 
 			if (dosenObj == 0){ 
