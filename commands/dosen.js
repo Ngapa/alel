@@ -12,10 +12,9 @@ module.exports = {
 			const dos = dosen.map( el => el.namaDepan = `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
 			let dosenObj = dos.filter(el => Object.entries(el).flat().map( el => el.toLowerCase()).map( el => el.trim()).includes(keyword))
 			
-			if (dosenObj == 0){ return message.reply('Mohon maaf pencarian tidak ditemukan.')}
-		}else{
-			
-			return message.reply('Mohon maaf pencarian tidak ditemukan.')
+			if (dosenObj == 0){ 
+				return message.reply('Mohon maaf pencarian tidak ditemukan.')
+			}
 		}
 
 		dosenObj.forEach( result => {
