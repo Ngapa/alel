@@ -22,7 +22,9 @@ module.exports = {
 			}
 
 			dosenObj = dosen.filter(el => el.namaDepan == dosenObj[0] || el.namaTengah == dosenObj[1] || el.namaTengah == dosenObj[2] )
+			console.log(dosenObj)
 		}
+		console.log('check point')
 
 		dosenObj.forEach( result => {
 		const words = `${result.namaDepan} ${result.namaTengah} ${result.namaBelakang}`;
