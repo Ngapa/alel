@@ -9,22 +9,19 @@ module.exports = {
 		let dosenObj = dosen.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
 
 		if (dosenObj == 0){ 
-			let dos = dosen.map( el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
-			console.log(dos);
-
-			dos = dos.map( el => el.trim().toLowerCase())
-
-			dosenObj = dos.filter(el => el == keyword)
-			console.log(dosenObj)
+			let dosFull = dosen.map( el => {
+				el.namaLengkap = `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`
+				el.namaLengkap.trim()
+				return el
+				}
+			)
+			
+			dosenObj = dosFull.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
 
 			if (dosenObj == 0){ 
 				return message.reply('mohon maaf pencarian tidak ditemukan.')
 			}
-
-			dosenObj = dosen.filter(el => el.namaDepan == dosenObj[0] || el.namaTengah == dosenObj[1] || el.namaTengah == dosenObj[2] )
-			console.log(dosenObj)
 		}
-		console.log('check point')
 
 		dosenObj.forEach( result => {
 		const words = `${result.namaDepan} ${result.namaTengah} ${result.namaBelakang}`;
