@@ -8,7 +8,7 @@ module.exports ={
 
 		const lastName = mhs.map(el => el.namaBelakang)
 
-		const names = `${firstName[Math.ceil(Math.random() * firstName.length)]} ${midName[Math.ceil(Math.random() * midName.length)]} ${lastName[Math.ceil(Math.random() * lastName.length)]}`
+		const names = `${firstName[Math.ceil(Math.random() * firstName.length-1)]} ${midName[Math.ceil(Math.random() * midName.length-1)]} ${lastName[Math.ceil(Math.random() * lastName.length-1)]}`
 		const result = names.trim().split(' ').map( name => name[0].toUpperCase() + name.substring(1)).join(' ')
 
 
