@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'carikan',
+	name: 'dosen',
 	description: `Perintah untuk mencari dosen berdasarkan nama/wa/email.\n\` alel dosen <matkul>/<namaDepan/belakang/tengah>/<wa>/<email> \``,
 	args: true,
 	execute(message, args, Discord){
