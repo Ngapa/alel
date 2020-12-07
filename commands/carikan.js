@@ -4,7 +4,7 @@ module.exports = {
 	args: true,
 	execute(message, args, Discord, mhs){
 		const keyword = args[0].toLowerCase();
-		const mhsObj = mhs.filter( el => Object.entries(el).flat().toLowerCase().includes(keyword))
+		const mhsObj = mhs.filter( el => Object.entries(el).flat().map( el => el.toLowerCase()).includes(keyword))
 
 		if (mhsObj == 0) return message.reply('Mohon maaf pencarian tidak ditemukan.');
 		mhsObj.forEach( result => {
