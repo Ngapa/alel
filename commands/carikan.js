@@ -7,7 +7,7 @@ module.exports = {
 		const mhsObj = mhs.filter( el => Object.entries(el).flat().includes(keyword))
 
 		if (mhsObj == 0) return message.reply('Mohon maaf pencarian tidak ditemukan.');
-		const result = mhsObj[0]
+		mhsObj.forEach( result => {
 		const words = `${result.namaDepan} ${result.namaTengah} ${result.namaBelakang}`;
 
 		const name = words.trim().split(' ').map( word => word[0].toUpperCase() + word.substring(1)).join(' ')
@@ -23,6 +23,6 @@ module.exports = {
 			.setFooter(`Kartu ini berlaku hingga 2023 - Alel`)
 
 		message.channel.send(profileEmbed);
-
+	})
 	}
 }
