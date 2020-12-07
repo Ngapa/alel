@@ -11,7 +11,7 @@ module.exports = {
 		if (dosenObj == 0){ 
 			let dosFull = dosen.map( el => {
 				el.namaLengkap = `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`
-				el.namaLengkap.trim()
+				el.namaLengkap = el.namaLengkap.trim()
 				return el
 				}
 			)
