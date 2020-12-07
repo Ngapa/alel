@@ -1,82 +1,90 @@
 [
  {
-   "no": 1,
+   "no": "1",
    "namaDepan": "Suhud",
    "namaTengah": "",
    "namaBelakang": "",
    "gelar": "S.E",
-   "whatsapp": "0877-8671-8913",
+   "matkul": "Manajemen Bisnis",
+   "whatsapp": "087786718913",
    "email": "suhud.1988@gmail.com",
-   "img": ""
+   "img": "img/dosen/suhud.jpg"
  },
  {
-   "no": 2,
+   "no": "2",
    "namaDepan": "Kusnana",
    "namaTengah": "",
    "namaBelakang": "",
    "gelar": "S.Kom",
+   "matkul": "Sistem Operasi",
    "whatsapp": "0815-4829-4094",
    "email": "nanakusnana999@gmail.com",
-   "img": ""
+   "img": "img/dosen/kusnana.jpg"
  },
  {
-   "no": 3,
+   "no": "3",
    "namaDepan": "Muhammad",
    "namaTengah": "Mustangin",
    "namaBelakang": "",
-   "gelar": "M.Pd",
-   "whatsapp": " Gr",
-   "email": "0831-0862-5271",
-   "img": "mustanginmuhammad@gmail.com"
+   "gelar": "M.Pd, Gr",
+   "matkul": "Bahasa Inggris",
+   "whatsapp": "083108625271",
+   "email": "mustanginmuhammad@gmailcom",
+   "img": "img/dosen/muhammad.jpg"
  },
  {
-   "no": 4,
+   "no": "4",
    "namaDepan": "R. Bagus",
    "namaTengah": "Bambang",
-   "namaBelakang": "",
-   "gelar": "S.T",
-   "whatsapp": " M.Kom",
-   "email": "0856-7444-414",
-   "img": "er_bhe@yahoo.com"
+   "namaBelakang": "Sumantri",
+   "gelar": "S.T, M.Kom",
+   "matkul": "Pemrograman Web",
+   "whatsapp": "08567444414",
+   "email": "er_bhe@yahoo.com",
+   "img": "img/dosen/rbagus.jpg"
  },
  {
-   "no": 5,
+   "no": "5",
    "namaDepan": "Nur",
    "namaTengah": "Muniroh",
    "namaBelakang": "",
    "gelar": "S.T",
-   "whatsapp": "0856-4791-4463",
+   "matkul": "Dasar RPL",
+   "whatsapp": "085647914463",
    "email": "nurmuniroh01@gmail.com",
-   "img": ""
+   "img": "img/dosen/nur.jpg"
  },
  {
-   "no": 6,
+   "no": "6",
    "namaDepan": "Much",
    "namaTengah": "Solehudin",
    "namaBelakang": "",
    "gelar": "M.Pd",
-   "whatsapp": "0897-5937-229",
+   "matkul": "Islamic Studies 2",
+   "whatsapp": "08975937229",
    "email": "solehu41@gmail.com",
-   "img": ""
+   "img": "img/dosen/much.jpg"
  },
  {
-   "no": 7,
+   "no": "7",
    "namaDepan": "Fadillah",
    "namaTengah": "Istiqomah",
    "namaBelakang": "",
    "gelar": "M.Pd",
-   "whatsapp": "0822-1443-0204",
+   "matkul": "Aljabar Linier dan Matriks",
+   "whatsapp": "082214430204",
    "email": "fadillahdila983@gmail.com",
-   "img": ""
+   "img": "img/dosen/suhud.jpg"
  },
  {
-   "no": 8,
+   "no": "8",
    "namaDepan": "Ratih",
    "namaTengah": "",
    "namaBelakang": "",
    "gelar": "M.Kom",
-   "whatsapp": "0877-1988-4805",
+   "matkul": "Basis Data Lanjutan",
+   "whatsapp": "087719884805",
    "email": "ratihagis.ra@gmail.com",
-   "img": ""
+   "img": "img/dosen/ratih.jpg"
  }
 ]
