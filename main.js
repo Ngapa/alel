@@ -33,49 +33,49 @@ client.on("message", message => {
     if (!message.guild) return;
     if (message.author.bot) return;
 
-    let addExp = Math.floor(Math.random() * 10) + Math.floor(message.content.length/2);
+    if (!message.content.startsWith(botPrefix)) {
+        let addExp = Math.floor(Math.random() * 10) + Math.floor(message.content.length / 2);
 
-    if(!exp[message.author.id]){
-        exp[message.author.id] = {
-            xp: 0,
-            level: 0,
-            nextLevelExp: 40,
-            levelAndExp: 0,
-            server: `${message.member.guild.id}`
-        };
-    }
+        if (!exp[message.author.id]) {
+            exp[message.author.id] = {
+                xp: 0,
+                level: 0,
+                nextLevelExp: 40,
+                levelAndExp: 0,
+                server: `${message.member.guild.id}`
+            };
+        }
 
-    let nowExp = exp[message.author.id].xp;
-    exp[message.author.id].xp = nowExp + addExp;
+        let nowExp = exp[message.author.id].xp;
+        exp[message.author.id].xp = nowExp + addExp;
 
-    let addedExp = exp[message.author.id].xp;
-    let nowLevel = exp[message.author.id].level;
+        let addedExp = exp[message.author.id].xp;
+        let nowLevel = exp[message.author.id].level;
 
-    let nowNext = exp[message.author.id].nextLevelExp;
-    exp[message.author.id].levelAndExp += addedExp;
+        let nowNext = exp[message.author.id].nextLevelExp;
+        exp[message.author.id].levelAndExp += addedExp;
 
-    if(addedExp > nowNext){
-        exp[message.author.id].levelAndExp += nextLevelExp
-        exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
+        if (addedExp > nowNext) {
+            exp[message.author.id].levelAndExp += exp[message.author.id].nextLevelExp
+            exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
 
-        exp[message.author.id].level = nowLevel + 1; 
-        exp[message.author.id].xp = 0;
+            exp[message.author.id].level = nowLevel + 1;
+            exp[message.author.id].xp = 0;
 
-        message.channel.send(message.author).then( el => {
-                    const levelUpEmbed = new Discord.MessageEmbed()
-            .setThumbnail(message.author.displayAvatarURL())
-            .setTitle('Naik Level')
-            .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke level ${exp[message.author.id].level}. Ayo terus aktif berdiskusi tanpa spamming!`)
-            .setColor('#5CE1E6')
-            .setFooter(message.guild.name)
+            message.channel.send(message.author).then(el => {
+                const levelUpEmbed = new Discord.MessageEmbed()
+                    .setThumbnail(message.author.displayAvatarURL())
+                    .setTitle('Naik Level')
+                    .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke level ${exp[message.author.id].level}. Ayo terus aktif berdiskusi tanpa spamming!`)
+                    .setColor('#5CE1E6')
+                    .setFooter(message.guild.name)
 
-        el.edit(levelUpEmbed);
-        })
-    }
+                el.edit(levelUpEmbed);
+            })
+        }
 
-    fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
-
-    if(!message.content.startsWith(botPrefix)) return;
+        return fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
+    };
 
     const args = message.content.slice(botPrefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -140,8 +140,8 @@ const arisan = new cron.CronJob('0 7 * * *', () => {
 );
 
 const sistemOperasi = new cron.CronJob('35 9 * * 1', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
-       const soEmbed = new Discord.MessageEmbed()
+        const absensiChannel = client.channels.cache.get("760086156842106901");
+        const soEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ping', 'Sistem Operasi, 5 menit lagi @everyone')
 
@@ -153,7 +153,7 @@ const sistemOperasi = new cron.CronJob('35 9 * * 1', () => {
 );
 
 const bahasaInggris = new cron.CronJob('25 7 * * 2', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
+        const absensiChannel = client.channels.cache.get("760086156842106901");
         const bingEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Pong', 'Bahasa Inggris, 5 menit lagi @everyone')
@@ -166,7 +166,7 @@ const bahasaInggris = new cron.CronJob('25 7 * * 2', () => {
 );
 
 const pemWeb = new cron.CronJob('35 9 * * 2', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
+        const absensiChannel = client.channels.cache.get("760086156842106901");
         const pwebEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Pemrograman Web, 5 menit lagi @everyone')
@@ -179,7 +179,7 @@ const pemWeb = new cron.CronJob('35 9 * * 2', () => {
 );
 
 const dasarRPL = new cron.CronJob('25 7 * * 3', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
+        const absensiChannel = client.channels.cache.get("760086156842106901");
         const rplEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Dum', 'Dasar RPL, 5 menit lagi @everyone')
@@ -192,7 +192,7 @@ const dasarRPL = new cron.CronJob('25 7 * * 3', () => {
 );
 
 const islamicStudies = new cron.CronJob('35 9 * * 3', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
+        const absensiChannel = client.channels.cache.get("760086156842106901");
         const isEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Islamic Studies 2, 5 menit lagi @everyone')
@@ -205,7 +205,7 @@ const islamicStudies = new cron.CronJob('35 9 * * 3', () => {
 );
 
 const aljabar = new cron.CronJob('25 7 * * 4', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
+        const absensiChannel = client.channels.cache.get("760086156842106901");
         const aljEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Boom', 'Aljabar Linier dan Matriks, 5 menit lagi @everyone')
@@ -218,7 +218,7 @@ const aljabar = new cron.CronJob('25 7 * * 4', () => {
 );
 
 const basisData = new cron.CronJob('35 9 * * 4', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
+        const absensiChannel = client.channels.cache.get("760086156842106901");
         const bdataEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Basis Data Lanjutan, 5 menit lagi @everyone')
@@ -231,7 +231,7 @@ const basisData = new cron.CronJob('35 9 * * 4', () => {
 );
 
 const bisnis = new cron.CronJob('35 9 * * 5', () => {
-    const absensiChannel = client.channels.cache.get("760086156842106901");
+        const absensiChannel = client.channels.cache.get("760086156842106901");
         const bisnisEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .addField('Ba', 'Manajemen Bisnis, 5 menit lagi @everyone')
