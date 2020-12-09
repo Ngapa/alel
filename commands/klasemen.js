@@ -12,8 +12,7 @@ module.exports = {
             const lead = Object.entries(exp).sort((a, b) => b[1].level - a[1].level)
             const leader = lead.filter(el => el[1].server == message.member.guild.id)
             
-            const client = new Discord.Client();
-            const server = client.guilds.cache.find( guild => guild.id == message.member.guild.id)
+            const server = message.guilds.cache.find( guild => guild.id == message.member.guild.id)
 
             const result = leader.filter((el, id) => id < 10)
             const naming = result.map(el => el[0])
@@ -21,7 +20,7 @@ module.exports = {
             const nicknames = naming.map((el) => {
                 return server.member(el)
             });
-            
+
             const points = result.map(el => el[1].xp)
             const levels = result.map(el => el[1].level)
             const nextP = result.map(el => el[1].nextLevelExp)
