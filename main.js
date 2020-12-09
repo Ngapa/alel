@@ -48,22 +48,6 @@ client.on("message", message => {
         let nowExp = exp[message.author.id].xp;
         exp[message.author.id].xp = nowExp + addExp;
 
-        if (!exp[message.author.id]) {
-            exp[message.author.id] = {
-                xp: 0,
-                level: 0,
-                nextLevelExp: 40,
-                levelAndExp: 0,
-                server: `${message.member.guild.id}`
-            };
-        }
-
-        let addedExp = exp[message.author.id].xp;
-        let nowLevel = exp[message.author.id].level;
-
-        let nowNext = exp[message.author.id].nextLevelExp;
-        exp[message.author.id].levelAndExp += addedExp;
-
         if (addedExp > nowNext) {
             exp[message.author.id].levelAndExp += exp[message.author.id].nextLevelExp
             exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
