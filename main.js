@@ -74,10 +74,11 @@ client.on("message", message => {
             const levelUpEmbed = new Discord.MessageEmbed()
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTitle('Naik Level')
-                .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke level ${exp[message.author.id].level}. Ayo terus aktif berdiskusi tanpa spamming!`)
+                .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke **level ${exp[message.author.id].level}**. Ayo terus aktif berdiskusi tanpa spamming!`)
                 .setColor('#5CE1E6')
                 .setFooter(message.guild.name)
 
+            message.channel.send(message.author)
             message.reply(levelUpEmbed);
 
         }
