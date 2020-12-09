@@ -74,7 +74,7 @@ client.on("message", message => {
             })
         }
 
-        return fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
+        fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
     };
 
     const args = message.content.slice(botPrefix.length).trim().split(/ +/);
