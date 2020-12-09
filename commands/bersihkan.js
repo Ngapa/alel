@@ -1,7 +1,8 @@
 module.exports = {
 	name: 'bersihkan',
 	description: 'Perintah untuk membersihkan pesan.\n\` alel bersihkan <2-100> \`',
-	excecute(message, args, Discord){
+	args: true,
+	async execute(message, args, Discord){
 		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('kamu tidak punya izin!');
 		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send('Maaf, Alel tidak punya izin.');
 
@@ -12,12 +13,12 @@ module.exports = {
 		if(!Number.isInteger(delAmount)) return message.reply(`jumlah pesan harus dalam bilangan bulat 2 - 100`)
 
 		if(!delAmount || delAmount < 2 || delAmount > 100) return message.reply(`jumlah pesan harus berada diantara  2 sampai 100`)
-		const mesFetch = message.channel.messages.fetch({
+		const mesFetch = await message.channel.messages.fetch({
 			limit: delAmount
 		});
 
 		try{
-			message.channel.bulkDelete(mesFetch)
+			await message.channel.bulkDelete(mesFetch)
 				.then( el => message.channel.send(`pesan telah dibersihkan sejumlah ${el.size}`));
 
 		}catch(err){
@@ -25,6 +26,6 @@ module.exports = {
 			message.reply(`pesan gagal dibersihkan. karena pesannya berumur lebih dari 14 hari`)
 		}
 
-	}
+	};
 
 }
