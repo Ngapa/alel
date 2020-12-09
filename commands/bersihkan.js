@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'bersihkan',
-	description: 'Perintah untuk membersihkan pesan.\n\` alel bersihkan<2-100 \`',
-	async excecute(message, args, Discord){
+	description: 'Perintah untuk membersihkan pesan.\n\` alel bersihkan <2-100> \`',
+	excecute(message, args, Discord){
 		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('kamu tidak punya izin!');
 		if(!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send('Maaf, Alel tidak punya izin.');
 
@@ -17,7 +17,7 @@ module.exports = {
 		});
 
 		try{
-			await message.channel.bulkDelete(mesFetch)
+			message.channel.bulkDelete(mesFetch)
 				.then( el => message.channel.send(`pesan telah dibersihkan sejumlah ${el.size}`));
 
 		}catch(err){
