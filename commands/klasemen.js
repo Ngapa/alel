@@ -3,7 +3,7 @@ module.exports = {
     description: 'Perintah untuk melihat daftar perolehan Exp.\n` alel klasemen \n`',
 
     execute(message, args, Discord) {
-        const exp = require(process.env.EXP);
+        const exp = require('./../data/exp.json');
         const server = exp[message.author.id].server;
 
         if (!Object.keys(server)[0]) {
@@ -21,7 +21,7 @@ module.exports = {
             const nicknames = naming.map((el) => {
                 return server.member(el)
             });
-
+            
             const points = result.map(el => el[1].xp)
             const levels = result.map(el => el[1].level)
             const nextP = result.map(el => el[1].nextLevelExp)

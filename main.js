@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const mhs = require('./data/mhs.json');
 const path = require('path');
 
-const exp = require(process.env.EXP);
+const exp = require('./data/exp.json');
 const canvacord = require("canvacord");
 
 const { botPrefix, botName, botLogo, botDescription, botAuthor } = require('./config.json');
@@ -66,7 +66,7 @@ client.on("message", message => {
         message.channel.send(levelUpEmbed);
     }
 
-    fs.writeFileSync(process.env.EXP, JSON.stringify(exp));
+    fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
 
     if(!message.content.startsWith(botPrefix)) return;
 
