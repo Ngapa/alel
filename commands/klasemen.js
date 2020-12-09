@@ -4,7 +4,7 @@ module.exports = {
 
     execute(message, args, Discord) {
         const exp = require('./../data/exp.json');
-        if (exp[message.author.id] == null) message.reply('kamu tidak punya Exp. Ayo aktif berdiskusi!');
+        if (!exp[message.author.id]){return message.reply('kamu tidak punya Exp. Ayo aktif berdiskusi!')};
         
         const server = exp[message.author.id].server;
 
