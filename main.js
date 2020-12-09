@@ -33,13 +33,13 @@ client.on("message", message => {
     if (!message.guild) return;
     if (message.author.bot) return;
 
-    let addExp = Math.floor(Math.random() * (10 + message.content.length)) + 1 ;
+    let addExp = Math.floor(Math.random() * 10) + Math.floor(message.content.length/2);
 
     if(!exp[message.author.id]){
         exp[message.author.id] = {
             xp: 0,
             level: 0,
-            nextLevelExp: 10,
+            nextLevelExp: 30,
             server: `${message.member.guild.id}`
         };
     }
@@ -53,16 +53,15 @@ client.on("message", message => {
     let nowNext = exp[message.author.id].nextLevelExp;
 
     if(addedExp > nowNext){
-        exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.2);
+        exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.5);
         exp[message.author.id].level = nowLevel + 1; 
 
         exp[message.author.id].xp = 0;
         const levelUpEmbed = new Discord.MessageEmbed()
-            .setTitle("Selamat!")
             .setThumbnail(message.author.displayAvatarURL())
-            .setDescription(`${message.author} berhasil naik ke level ${exp[message.author.id].level}!\nAyo aktif terus tanpa spamming!`)
+            .setDescription(`**Selamat!**\n${message.author} berhasil naik ke level ${exp[message.author.id].level}!`)
             .setColor('#5CE1E6')
-            .setFooter('Perintah lainnya: alel rank | alel klasemen')
+            .setFooter('Ayo aktif terus tanpa spamming!')
 
         message.channel.send(levelUpEmbed);
     }
@@ -91,9 +90,10 @@ client.on("guildMemberAdd", member => {
 
     const welcomeEmbed = new Discord.MessageEmbed()
         .setTitle(`Halo, ${member.user.username}`)
-        .setDescription(`Selamat datang di server kami. Silakan buka pesan pin di atas untuk melihat informasi mengenai server ini.\n**Selamat bergabung, ${member}**.`)
+        .setDescription(`Selamat datang di server kami. Silakan buka pesan pin di atas untuk melihat informasi mengenai server ini.\n**:wave: Selamat bergabung, ${member}**`)
+        .setThumbnail(member.user.displayAvatarURL())
         .setColor('RANDOM')
-        .setFooter('© Alel')
+        .setFooter(':blue_heart: Alel')
 
     welcomeChannel.send(welcomeEmbed)
 })
@@ -104,9 +104,10 @@ client.on("guildMemberRemove", member => {
 
     const byeEmbed = new Discord.MessageEmbed()
         .setTitle(`Terima kasih, ${member.user.username}`)
-        .setDescription(`Kami memohon maaf atas kekurangan dan kesalahan yang terdapat di server kami.\n**Selamat jalan.**`)
+        .setDescription(`Kami memohon maaf atas kekurangan dan kesalahan yang terdapat di server kami.\n**:wave: Selamat jalan**`)
+        .setThumbnail('https://i.imgur.com/eU48z3k.png')
         .setColor('RANDOM')
-        .setFooter('©️ Alel')
+        .setFooter(':blue_heart: Alel')
 
     byeChannel.send(byeEmbed)
 })
@@ -115,9 +116,12 @@ const arisan = new cron.CronJob('0 7 * * *', () => {
         const arisanChannel = client.channels.cache.get("759964896066273316");
         const mahasiswa = mhs.map(el => `${el.namaDepan} ${el.namaTengah} ${el.namaBelakang}`)
 
+        const imageName = mhs.map(el => el.namaDepan.toLowerCase())
+
         const pemenang = mahasiswa[Math.floor(Math.random() * mahasiswa.length)];
         const arisanEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
+            .setThumbnail(`https://raw.githubusercontent.com/awalariansyah/alel/main/data/${imageName}`)
             .addField('Selamat!', `Selamat kepada **${pemenang}** telah memenangkan undian arisan hari ini!\nSilakan mention <@!607753400137940992> untuk mendapatkan 50 Exp. Hadiah akan hangus dalam 12 jam jika tidak diambil segera!`)
             .setFooter('Nantikan undian arisan berikutnya!')
 

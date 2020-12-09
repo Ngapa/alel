@@ -30,10 +30,11 @@ module.exports = {
 		const nameTitle = `${name} ${result.gelar}`
 
 		const profileEmbed = new Discord.MessageEmbed()
-			.setColor('RANDOM')
+			.setColor('#5CE1E6')
 			.setTitle(`Kartu Profil Dosen`)
+			.setThumbnail('https://raw.githubusercontent.com/awalariansyah/alel/main/data/img/lainnya/stmikkomputama.png')
 			.addField('Nama', `${nameTitle}`)
-			.addField('Mengampu Mata Kuliah', `${result.matkul}`)
+			.addField('Mata Kuliah', `${result.matkul}`)
 			.addField('Whatsapp', `${result.whatsapp}`)
 			.addField('Email', `${result.email}`)
 			.setImage(`https://raw.githubusercontent.com/awalariansyah/alel/main/data/${result.img}`)

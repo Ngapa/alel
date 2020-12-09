@@ -13,8 +13,9 @@ module.exports = {
 		const name = words.trim().split(' ').map( word => word[0].toUpperCase() + word.substring(1)).join(' ')
 
 		const profileEmbed = new Discord.MessageEmbed()
-			.setColor('RANDOM')
+			.setColor('#5CE1E6')
 			.setTitle(`Kartu Profil`)
+			.setThumbnail('https://raw.githubusercontent.com/awalariansyah/alel/main/data/img/lainnya/stmikkomputama.png')
 			.addField('Nama', `${name}`)
 			.addField('NIM', `${result.nim}`)
 			.addField('Whatsapp', `${result.whatsapp}`)
