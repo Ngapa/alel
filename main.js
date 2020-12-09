@@ -34,8 +34,6 @@ client.on("message", message => {
     if (message.author.bot) return;
 
     if (!message.content.startsWith(botPrefix)) {
-        let addExp = Math.floor(Math.random() * 10) + Math.floor(message.content.length / 2);
-
         if (!exp[message.author.id]) {
             exp[message.author.id] = {
                 xp: 0,
@@ -46,8 +44,19 @@ client.on("message", message => {
             };
         }
 
+        let addExp = Math.floor(Math.random() * 10) + Math.floor(message.content.length / 2);
         let nowExp = exp[message.author.id].xp;
         exp[message.author.id].xp = nowExp + addExp;
+
+        if (!exp[message.author.id]) {
+            exp[message.author.id] = {
+                xp: 0,
+                level: 0,
+                nextLevelExp: 40,
+                levelAndExp: 0,
+                server: `${message.member.guild.id}`
+            };
+        }
 
         let addedExp = exp[message.author.id].xp;
         let nowLevel = exp[message.author.id].level;
@@ -62,16 +71,15 @@ client.on("message", message => {
             exp[message.author.id].level = nowLevel + 1;
             exp[message.author.id].xp = 0;
 
-            message.channel.send(message.author).then(el => {
-                const levelUpEmbed = new Discord.MessageEmbed()
-                    .setThumbnail(message.author.displayAvatarURL())
-                    .setTitle('Naik Level')
-                    .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke level ${exp[message.author.id].level}. Ayo terus aktif berdiskusi tanpa spamming!`)
-                    .setColor('#5CE1E6')
-                    .setFooter(message.guild.name)
+            const levelUpEmbed = new Discord.MessageEmbed()
+                .setThumbnail(message.author.displayAvatarURL())
+                .setTitle('Naik Level')
+                .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke level ${exp[message.author.id].level}. Ayo terus aktif berdiskusi tanpa spamming!`)
+                .setColor('#5CE1E6')
+                .setFooter(message.guild.name)
 
-                el.edit(levelUpEmbed);
-            })
+            message.reply(levelUpEmbed);
+
         }
 
         fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
