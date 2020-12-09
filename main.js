@@ -39,7 +39,7 @@ client.on("message", message => {
         exp[message.author.id] = {
             xp: 0,
             level: 0,
-            nextLevelExp: 30,
+            nextLevelExp: 40,
             server: `${message.member.guild.id}`
         };
     }
@@ -53,14 +53,14 @@ client.on("message", message => {
     let nowNext = exp[message.author.id].nextLevelExp;
 
     if(addedExp > nowNext){
-        exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.5);
+        exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
         exp[message.author.id].level = nowLevel + 1; 
 
         exp[message.author.id].xp = 0;
         const levelUpEmbed = new Discord.MessageEmbed()
             .setThumbnail(message.author.displayAvatarURL())
             .setTitle('Selamat!')
-            .setDescription(`:star::star: ${message.author} :star::star: telah berhasil naik ke level ${exp[message.author.id].level}.\nSebuah pencapaian yang luar biasa.\nAyo aktif berdiskusi tanpa spamming!`)
+            .setDescription(`:star: ${message.author} berhasil naik ke level ${exp[message.author.id].level}.\nSebuah pencapaian yang luar biasa.\nAyo aktif berdiskusi tanpa spamming!`)
             .setColor('#5CE1E6')
 
         message.channel.send(levelUpEmbed);
