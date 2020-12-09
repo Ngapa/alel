@@ -26,6 +26,6 @@ module.exports = {
 			message.reply(`pesan gagal dibersihkan. karena pesannya berumur lebih dari 14 hari`)
 		}
 
-	};
+	}
 
 }
