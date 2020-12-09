@@ -5,7 +5,7 @@ module.exports = {
     description: 'Perintah untuk melihat perolehan Exp yang telah didapatkan.\n` alel rank `',
     execute(message, args, Discord) {
         const exp = require('./../data/exp.json')
-        if (!exp[message.author.id]) message.reply('kamu tidak punya Exp. Ayo aktif berdiskusi!');
+        if (exp[message.author.id] == null) message.reply('kamu tidak punya Exp. Ayo aktif berdiskusi!');
 
         const listSort = Object.entries(exp).sort((a, b) => b[1].level - a[1].level)
         const ranking = listSort.filter(el => el[1].server == message.member.guild.id)
