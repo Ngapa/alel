@@ -48,6 +48,12 @@ client.on("message", message => {
         let nowExp = exp[message.author.id].xp;
         exp[message.author.id].xp = nowExp + addExp;
 
+        let addedExp = exp[message.author.id].xp;
+        let nowLevel = exp[message.author.id].level;
+
+        let nowNext = exp[message.author.id].nextLevelExp;
+        exp[message.author.id].levelAndExp += addedExp;
+
         if (addedExp > nowNext) {
             exp[message.author.id].levelAndExp += exp[message.author.id].nextLevelExp
             exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
@@ -63,7 +69,7 @@ client.on("message", message => {
                 .setFooter(message.guild.name)
 
             message.channel.send(message.author)
-            message.reply(levelUpEmbed);
+            message.channel.send(levelUpEmbed);
 
         }
 
