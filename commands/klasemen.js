@@ -9,7 +9,7 @@ module.exports = {
         if (!Object.keys(server)[0]) {
             return message.reply('maaf masih belum ada klasemen. Ayo mulai aktif!');
         } else {
-            const lead = Object.entries(exp).sort((a, b) => b[1].level - a[1].level)
+            const lead = Object.entries(exp).sort((a, b) => b[1].levelAndExp - a[1].levelAndExp)
             const leader = lead.filter(el => el[1].server == message.member.guild.id)
             
             const server = message.client.guilds.cache.find( guild => guild.id == message.member.guild.id)
@@ -46,7 +46,7 @@ module.exports = {
 
             const embedExp = new Discord.MessageEmbed()
                 .setColor('#5CE1E6')
-                .setTitle(`Klasemen`)
+                .setTitle(`Klasemen 10 Besar`)
                 .setThumbnail(message.guild.iconURL())
                 .addField(`Perolehan Exp di ${message.guild.name}`, `${leadOut}`)
             message.channel.send(embedExp);

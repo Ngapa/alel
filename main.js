@@ -40,6 +40,7 @@ client.on("message", message => {
             xp: 0,
             level: 0,
             nextLevelExp: 40,
+            levelAndExp: 0,
             server: `${message.member.guild.id}`
         };
     }
@@ -51,19 +52,25 @@ client.on("message", message => {
     let nowLevel = exp[message.author.id].level;
 
     let nowNext = exp[message.author.id].nextLevelExp;
+    exp[message.author.id].levelAndExp += addedExp;
 
     if(addedExp > nowNext){
+        exp[message.author.id].levelAndExp += nextLevelExp
         exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
+
         exp[message.author.id].level = nowLevel + 1; 
-
         exp[message.author.id].xp = 0;
-        const levelUpEmbed = new Discord.MessageEmbed()
-            .setThumbnail(message.author.displayAvatarURL())
-            .setTitle('Selamat!')
-            .setDescription(`:star: ${message.author} berhasil naik ke level ${exp[message.author.id].level}.\n:star: Sebuah pencapaian yang luar biasa.\n:star: Ayo aktif berdiskusi tanpa spamming!`)
-            .setColor('#5CE1E6')
 
-        message.channel.send(levelUpEmbed);
+        message.channel.send(message.author).then( el => {
+                    const levelUpEmbed = new Discord.MessageEmbed()
+            .setThumbnail(message.author.displayAvatarURL())
+            .setTitle('Naik Level')
+            .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke level ${exp[message.author.id].level}. Ayo terus aktif berdiskusi tanpa spamming!`)
+            .setColor('#5CE1E6')
+            .setFooter(message.guild.name)
+
+        el.edit(levelUpEmbed);
+        })
     }
 
     fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
