@@ -6,7 +6,7 @@ module.exports = {
             let ping = m.createdTimestamp - message.createdTimestamp;
             let pingEmbed = new Discord.MessageEmbed()
                 .setDescription(`Ba Dum Tss! Pingnya **${ping} ms.**`)
-                .setColor('RANDOM')
+                .setColor('#5CE1E6')
             m.edit(pingEmbed)
         })
     },

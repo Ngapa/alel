@@ -8,7 +8,7 @@ module.exports = {
         return message.channel.send('Alel lebih milih...').then(m => {
             let embedPilihan = new Discord.MessageEmbed()
                 .setTitle(`**${myChoice}**`)
-                .setColor('RANDOM')
+                .setColor('#5CE1E6')
 
             m.edit(embedPilihan)
         })

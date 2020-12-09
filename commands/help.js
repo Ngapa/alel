@@ -11,9 +11,9 @@ module.exports = {
             .setTitle(`Menu Bantuan Alel`)
             .setAuthor(botName, botLogo)
             .setDescription(botDescription)
-            .setColor('RANDOM')
-            .addField('Prefix', `\` ${botPrefix} <perintah> \``)
-            .setThumbnail('https://media.tenor.com/images/cb99fb8003fc51e3f9e71ba3555d64e6/tenor.gif')
+            .setColor('#5CE1E6')
+            .addField('Awalan', `\` ${botPrefix} <perintah> \``)
+            .setThumbnail(bot.user.displayAvatarURL())
             .setFooter(`Dibuat oleh ${botAuthor} | 2020`)
 
         let index = 1;

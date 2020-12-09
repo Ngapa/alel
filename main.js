@@ -1,7 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
 const mhs = require('./data/mhs.json');
 const path = require('path');
+
+const exp = require('./data/exp.json');
+const canvacord = require("canvacord");
 
 const { botPrefix, botName, botLogo, botDescription, botAuthor } = require('./config.json');
 const cron = require('cron');
@@ -26,7 +30,46 @@ client.once("ready", () => {
 
 
 client.on("message", message => {
-    if (!message.content.startsWith(botPrefix) || message.author.bot) return;
+    if (!message.guild) return;
+    if (message.author.bot) return;
+
+    let addExp = Math.floor(Math.random() * (10 + message.content.length)) + 1 ;
+
+    if(!exp[message.author.id]){
+        exp[message.author.id] = {
+            xp: 0,
+            level: 0,
+            nextLevelExp: 10,
+            server: `${message.member.guild.id}`
+        };
+    }
+
+    let nowExp = exp[message.author.id].xp;
+    exp[message.author.id].xp = nowExp + addExp;
+
+    let addedExp = exp[message.author.id].xp;
+    let nowLevel = exp[message.author.id].level;
+
+    let nowNext = exp[message.author.id].nextLevelExp;
+
+    if(addedExp > nowNext){
+        exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.2);
+        exp[message.author.id].level = nowLevel + 1; 
+
+        exp[message.author.id].xp = 0;
+        const levelUpEmbed = new Discord.MessageEmbed()
+            .setTitle("Selamat!")
+            .setThumbnail(message.author.displayAvatarURL())
+            .setDescription(`${message.author} berhasil naik ke level ${exp[message.author.id].level}!\nAyo aktif terus tanpa spamming!`)
+            .setColor('#5CE1E6')
+            .setFooter('Perintah lainnya: alel rank | alel klasemen')
+
+        message.channel.send(levelUpEmbed);
+    }
+
+    fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
+
+    if(!message.content.startsWith(botPrefix)) return;
 
     const args = message.content.slice(botPrefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -38,7 +81,7 @@ client.on("message", message => {
         command.execute(message, args, Discord, mhs)
     } catch (error) {
         console.error(error);
-        message.reply('Maaf, perintah tidak dikenali!');
+        message.reply('maaf perintah tidak dikenali.');
     }
 });
 
@@ -48,7 +91,7 @@ client.on("guildMemberAdd", member => {
 
     const welcomeEmbed = new Discord.MessageEmbed()
         .setTitle(`Halo, ${member.user.username}`)
-        .setDescription(`Selamat datang di server kami. Silakan buka pin message diatas untuk melihat informasi mengenai server ini.\n**Selamat bergabung, ${member}**.`)
+        .setDescription(`Selamat datang di server kami. Silakan buka pesan pin di atas untuk melihat informasi mengenai server ini.\n**Selamat bergabung, ${member}**.`)
         .setColor('RANDOM')
         .setFooter('© Alel')
 
@@ -128,7 +171,7 @@ const dasarRPL = new cron.CronJob('25 7 * * 3', () => {
     const absensiChannel = client.channels.cache.get("760086156842106901");
         const rplEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Dum', 'Dasar RPL,, 5 menit lagi @everyone')
+            .addField('Dum', 'Dasar RPL, 5 menit lagi @everyone')
 
         absensiChannel.send(rplEmbed);
     },
