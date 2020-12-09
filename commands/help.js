@@ -13,7 +13,7 @@ module.exports = {
             .setDescription(botDescription)
             .setColor('#5CE1E6')
             .addField('Awalan', `\` ${botPrefix} <perintah> \``)
-            .setThumbnail(bot.user.displayAvatarURL())
+            .setThumbnail(botLogo)
             .setFooter(`Dibuat oleh ${botAuthor} | 2020`)
 
         let index = 1;
