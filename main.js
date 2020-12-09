@@ -59,9 +59,9 @@ client.on("message", message => {
         exp[message.author.id].xp = 0;
         const levelUpEmbed = new Discord.MessageEmbed()
             .setThumbnail(message.author.displayAvatarURL())
-            .setDescription(`**Selamat!**\n${message.author} berhasil naik ke level ${exp[message.author.id].level}!`)
+            .setTitle('Selamat!')
+            .setDescription(`:star::star: ${message.author} :star::star: telah berhasil naik ke level ${exp[message.author.id].level}.\nSebuah pencapaian yang luar biasa.\nAyo aktif berdiskusi tanpa spamming!`)
             .setColor('#5CE1E6')
-            .setFooter('Ayo aktif terus tanpa spamming!')
 
         message.channel.send(levelUpEmbed);
     }

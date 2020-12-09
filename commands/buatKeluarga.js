@@ -12,7 +12,7 @@ module.exports = {
                 { name: 'Ibu', value: `:woman_red_haired: ${keluarga[Math.floor(Math.random() * keluarga.length)]}`, inline: false },
                 { name: 'Anak Pertama', value: `:boy: ${keluarga[Math.floor(Math.random() * keluarga.length)]}`, inline: false },
                 { name: 'Anak Kedua', value: `:girl: ${keluarga[Math.floor(Math.random() * keluarga.length)]}`, inline: false },
-                { name: 'Umur Perkawinan', value:`:familiy_mwgb: ${Math.ceil(Math.random() * 60)}`})
+                { name: 'Umur Perkawinan', value:`:family_mwgb: ${Math.ceil(Math.random() * 60)}`})
             .setThumbnail('https://i.imgur.com/eU48z3k.png')
             .setFooter('Hanya untuk bercanda, jangan ditanggapi serius')
 
