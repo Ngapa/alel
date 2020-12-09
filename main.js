@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const mhs = require('./data/mhs.json');
 const path = require('path');
 
-const exp = require('./data/exp.json');
+const exp = require(process.env.EXP);
 const canvacord = require("canvacord");
 
 const { botPrefix, botName, botLogo, botDescription, botAuthor } = require('./config.json');
@@ -60,13 +60,13 @@ client.on("message", message => {
         const levelUpEmbed = new Discord.MessageEmbed()
             .setThumbnail(message.author.displayAvatarURL())
             .setTitle('Selamat!')
-            .setDescription(`:star: ${message.author} berhasil naik ke level ${exp[message.author.id].level}.\nSebuah pencapaian yang luar biasa.\nAyo aktif berdiskusi tanpa spamming!`)
+            .setDescription(`:star: ${message.author} berhasil naik ke level ${exp[message.author.id].level}.\n:star: Sebuah pencapaian yang luar biasa.\n:star: Ayo aktif berdiskusi tanpa spamming!`)
             .setColor('#5CE1E6')
 
         message.channel.send(levelUpEmbed);
     }
 
-    fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
+    fs.writeFileSync(process.env.EXP, JSON.stringify(exp));
 
     if(!message.content.startsWith(botPrefix)) return;
 

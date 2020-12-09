@@ -3,7 +3,7 @@ module.exports = {
     description: 'Perintah untuk melihat daftar perolehan Exp.\n` alel klasemen \n`',
 
     execute(message, args, Discord) {
-        const exp = require('./../data/exp.json');
+        const exp = require(process.env.EXP);
         const server = exp[message.author.id].server;
 
         if (!Object.keys(server)[0]) {
@@ -13,14 +13,13 @@ module.exports = {
             const leader = lead.filter(el => el[1].server == message.member.guild.id)
             
             const client = new Discord.Client();
-            const server = client.guilds.cache.get(message.member.guild.id)
+            const server = client.guilds.cache.find( guild => guild.id == message.member.guild.id)
 
             const result = leader.filter((el, id) => id < 10)
             const naming = result.map(el => el[0])
 
             const nicknames = naming.map((el) => {
-                let user = message.client.users.cache.find(user => user.id == el)
-                return server.member(user).nickname
+                return server.member(el)
             });
 
             const points = result.map(el => el[1].xp)
