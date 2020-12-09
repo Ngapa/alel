@@ -12,7 +12,7 @@ module.exports = {
 		if(!Number.isInteger(delAmount)) return message.reply(`jumlah pesan harus dalam bilangan bulat 2 - 100`)
 
 		if(!delAmount || delAmount < 2 || delAmount > 100) return message.reply(`jumlah pesan harus berada diantara  2 sampai 100`)
-		const mesFetch = await message.channel.messages.fetch({
+		const mesFetch = message.channel.messages.fetch({
 			limit: delAmount
 		});
 

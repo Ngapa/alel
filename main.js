@@ -99,7 +99,7 @@ client.on("guildMemberAdd", member => {
         .setDescription(`Selamat datang di server kami. Silakan buka pesan pin di atas untuk melihat informasi mengenai server ini.\n**:wave: Selamat bergabung, ${member}**`)
         .setThumbnail(member.user.displayAvatarURL())
         .setColor('RANDOM')
-        .setFooter(':blue_heart: Alel')
+        .setFooter('💙 Alel')
 
     welcomeChannel.send(welcomeEmbed)
 })
@@ -113,7 +113,7 @@ client.on("guildMemberRemove", member => {
         .setDescription(`Kami memohon maaf atas kekurangan dan kesalahan yang terdapat di server kami.\n**:wave: Selamat jalan**`)
         .setThumbnail('https://i.imgur.com/eU48z3k.png')
         .setColor('RANDOM')
-        .setFooter(':blue_heart: Alel')
+        .setFooter('💙 Alel')
 
     byeChannel.send(byeEmbed)
 })
