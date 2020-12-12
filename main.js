@@ -33,48 +33,47 @@ client.on("message", message => {
     if (!message.guild) return;
     if (message.author.bot) return;
 
-    if (!message.content.startsWith(botPrefix)) {
-        if (!exp[message.author.id]) {
-            exp[message.author.id] = {
-                xp: 0,
-                level: 0,
-                nextLevelExp: 40,
-                levelAndExp: 0,
-                server: `${message.member.guild.id}`
-            };
-        }
+    // if (!message.content.startsWith(botPrefix)) {
+    //     if (!exp[message.author.id]) {
+    //         exp[message.author.id] = {
+    //             xp: 0,
+    //             level: 0,
+    //             nextLevelExp: 40,
+    //             levelAndExp: 0,
+    //             server: `${message.member.guild.id}`
+    //         };
+    //     }
 
-        let addExp = Math.floor(Math.random() * 10) + Math.floor(message.content.length / 2);
-        let nowExp = exp[message.author.id].xp;
-        exp[message.author.id].xp = nowExp + addExp;
+    //     let addExp = Math.floor(Math.random() * 10);
+    //     let nowExp = exp[message.author.id].xp;
+    //     exp[message.author.id].xp = nowExp + addExp;
 
-        let addedExp = exp[message.author.id].xp;
-        let nowLevel = exp[message.author.id].level;
+    //     let addedExp = exp[message.author.id].xp;
+    //     let nowLevel = exp[message.author.id].level;
 
-        let nowNext = exp[message.author.id].nextLevelExp;
-        exp[message.author.id].levelAndExp += addedExp;
+    //     let nowNext = exp[message.author.id].nextLevelExp;
+    //     exp[message.author.id].levelAndExp += addedExp;
 
-        if (addedExp > nowNext) {
-            exp[message.author.id].levelAndExp += exp[message.author.id].nextLevelExp
-            exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
+    //     if (addedExp > nowNext) {
+    //         exp[message.author.id].levelAndExp += exp[message.author.id].nextLevelExp
+    //         exp[message.author.id].nextLevelExp = Math.floor(nowNext * 1.7);
 
-            exp[message.author.id].level = nowLevel + 1;
-            exp[message.author.id].xp = 0;
+    //         exp[message.author.id].level = nowLevel + 1;
+    //         exp[message.author.id].xp = 0;
 
-            const levelUpEmbed = new Discord.MessageEmbed()
-                .setThumbnail(message.author.displayAvatarURL())
-                .setTitle('Naik Level')
-                .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke **level ${exp[message.author.id].level}**. Ayo terus aktif berdiskusi tanpa spamming!`)
-                .setColor('#5CE1E6')
-                .setFooter(message.guild.name)
+    //         const levelUpEmbed = new Discord.MessageEmbed()
+    //             .setThumbnail(message.author.displayAvatarURL())
+    //             .setTitle('Naik Level')
+    //             .setDescription(`Selamat ${message.author.username}, kamu berhasil naik ke **level ${exp[message.author.id].level}**. Ayo terus aktif berdiskusi tanpa spamming!`)
+    //             .setColor('#5CE1E6')
+    //             .setFooter(message.guild.name)
 
-            message.channel.send(`<@!${message.author.id}>`)
-            message.channel.send(levelUpEmbed);
+    //         message.channel.send(`<@!${message.author.id}> ${levelUpEmbed}`);
 
-        }
+    //     }
 
-        fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
-    };
+    //     fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
+    // };
 
     const args = message.content.slice(botPrefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
@@ -194,7 +193,7 @@ const islamicStudies = new cron.CronJob('35 9 * * 3', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const isEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Ba', 'Islamic Studies 2, 5 menit lagi @everyone')
+            .addField('Tss', 'Islamic Studies 2, 5 menit lagi @everyone')
 
         absensiChannel.send(isEmbed);
     },
@@ -220,7 +219,7 @@ const basisData = new cron.CronJob('35 9 * * 4', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const bdataEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Ba', 'Basis Data Lanjutan, 5 menit lagi @everyone')
+            .addField('Dunk', 'Basis Data Lanjutan, 5 menit lagi @everyone')
 
         absensiChannel.send(bdataEmbed);
     },
@@ -233,7 +232,7 @@ const bisnis = new cron.CronJob('35 9 * * 5', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const bisnisEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Ba', 'Manajemen Bisnis, 5 menit lagi @everyone')
+            .addField('Prok', 'Manajemen Bisnis, 5 menit lagi @everyone')
 
         absensiChannel.send(bisnisEmbed);
     },

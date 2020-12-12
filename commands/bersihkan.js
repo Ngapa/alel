@@ -19,11 +19,11 @@ module.exports = {
 
 		try{
 			await message.channel.bulkDelete(mesFetch)
-				.then( el => message.channel.send(`pesan telah dibersihkan sejumlah ${el.size}`));
+				.then( el => message.channel.send(`Pesan telah dibersihkan sebanyak ${el.size} pesan.`));
 
 		}catch(err){
 			console.log(err)
-			message.reply(`pesan gagal dibersihkan. karena pesannya berumur lebih dari 14 hari`)
+			message.reply(`Pesan gagal dibersihkan karena berumur lebih dari 14 hari`)
 		}
 
 	}
