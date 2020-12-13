@@ -56,6 +56,6 @@ module.exports = {
     //         message.channel.send(embedExp);
     //     }
 
-    // }
+     }
 
 }
