@@ -74,7 +74,7 @@ client.on("message", message => {
 
     //     fs.writeFileSync("./data/exp.json", JSON.stringify(exp));
     // };
-
+if (!message.content.startsWith(botPrefix)) return;
     const args = message.content.slice(botPrefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
 
