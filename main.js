@@ -137,11 +137,11 @@ const arisan = new cron.CronJob('0 7 * * *', () => {
     'Asia/Jakarta'
 );
 
-const sistemOperasi = new cron.CronJob('35 9 * * 1', () => {
+const sistemOperasi = new cron.CronJob('1 10 * * 1', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const soEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Ping', 'Sistem Operasi, 5 menit lagi @everyone')
+            .addField('Ping', 'Grafika Komputer, 15 menit lagi @everyone')
 
         absensiChannel.send(soEmbed);
     },
@@ -150,11 +150,11 @@ const sistemOperasi = new cron.CronJob('35 9 * * 1', () => {
     'Asia/Jakarta'
 );
 
-const bahasaInggris = new cron.CronJob('25 7 * * 2', () => {
+const bahasaInggris = new cron.CronJob('45 7 * * 3', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const bingEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Pong', 'Bahasa Inggris, 5 menit lagi @everyone')
+            .addField('Pong', 'Technopreneurship, 15 menit lagi @everyone')
 
         absensiChannel.send(bingEmbed);
     },
@@ -163,11 +163,11 @@ const bahasaInggris = new cron.CronJob('25 7 * * 2', () => {
     'Asia/Jakarta'
 );
 
-const pemWeb = new cron.CronJob('35 9 * * 2', () => {
+const pemWeb = new cron.CronJob('1 10 * * 3', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const pwebEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Ba', 'Pemrograman Web, 5 menit lagi @everyone')
+            .addField('Ba', 'Pemrograman Berorientasi Objek, 15 menit lagi @everyone')
 
         absensiChannel.send(pwebEmbed);
     },
@@ -176,11 +176,11 @@ const pemWeb = new cron.CronJob('35 9 * * 2', () => {
     'Asia/Jakarta'
 );
 
-const dasarRPL = new cron.CronJob('25 7 * * 3', () => {
+const dasarRPL = new cron.CronJob('45 7 * * 4', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const rplEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Dum', 'Dasar RPL, 5 menit lagi @everyone')
+            .addField('Dum', 'Matematika Diskrit, 15 menit lagi @everyone')
 
         absensiChannel.send(rplEmbed);
     },
@@ -189,11 +189,11 @@ const dasarRPL = new cron.CronJob('25 7 * * 3', () => {
     'Asia/Jakarta'
 );
 
-const islamicStudies = new cron.CronJob('35 9 * * 3', () => {
+const islamicStudies = new cron.CronJob('1 10 * * 4', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const isEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Tss', 'Islamic Studies 2, 5 menit lagi @everyone')
+            .addField('Tss', 'Analisis Dan Perancangan Sistem, 15 menit lagi @everyone')
 
         absensiChannel.send(isEmbed);
     },
@@ -202,11 +202,11 @@ const islamicStudies = new cron.CronJob('35 9 * * 3', () => {
     'Asia/Jakarta'
 );
 
-const aljabar = new cron.CronJob('25 7 * * 4', () => {
+const aljabar = new cron.CronJob('45 7 * * 5', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const aljEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Boom', 'Aljabar Linier dan Matriks, 5 menit lagi @everyone')
+            .addField('Boom', 'Bahasa Assembly, 15 menit lagi @everyone')
 
         absensiChannel.send(aljEmbed);
     },
@@ -215,26 +215,13 @@ const aljabar = new cron.CronJob('25 7 * * 4', () => {
     'Asia/Jakarta'
 );
 
-const basisData = new cron.CronJob('35 9 * * 4', () => {
+const basisData = new cron.CronJob('1 10 * * 5', () => {
         const absensiChannel = client.channels.cache.get("760086156842106901");
         const bdataEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
-            .addField('Dunk', 'Basis Data Lanjutan, 5 menit lagi @everyone')
+            .addField('Dunk', 'Sistem Terdistribusi, 15 menit lagi @everyone')
 
         absensiChannel.send(bdataEmbed);
-    },
-    null,
-    true,
-    'Asia/Jakarta'
-);
-
-const bisnis = new cron.CronJob('35 9 * * 5', () => {
-        const absensiChannel = client.channels.cache.get("760086156842106901");
-        const bisnisEmbed = new Discord.MessageEmbed()
-            .setColor('RANDOM')
-            .addField('Prok', 'Manajemen Bisnis, 5 menit lagi @everyone')
-
-        absensiChannel.send(bisnisEmbed);
     },
     null,
     true,
