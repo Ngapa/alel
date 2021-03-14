@@ -4,7 +4,6 @@ module.exports = {
     name: 'rank',
     description: 'Perintah untuk melihat perolehan Exp yang telah didapatkan.\n` alel rank `',
     execute(message, args, Discord) {
-        message.reply('Pengembangan Alel sedang dihentikan.')
         const exp = require('./../data/exp.json')
         if (!exp[message.author.id]){return message.reply('kamu tidak punya Exp. Ayo aktif berdiskusi!')};
 

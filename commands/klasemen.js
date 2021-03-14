@@ -3,8 +3,6 @@ module.exports = {
     description: 'Perintah untuk melihat daftar perolehan Exp.\n` alel klasemen \n`',
 
     execute(message, args, Discord) {
-
-        message.reply('Pengembangan Alel sedang dihentikan.')
         const exp = require('./../data/exp.json');
         if (!exp[message.author.id]){return message.reply('kamu tidak punya Exp. Ayo aktif berdiskusi!')};
         
