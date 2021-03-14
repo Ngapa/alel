@@ -68,9 +68,7 @@ client.on("message", message => {
                 .setColor('#5CE1E6')
                 .setFooter(message.guild.name)
 
-            console.log(message.author.id, levelUpEmbed)
-
-            message.channel.send(`<@!${message.author.id}> ${levelUpEmbed}`);
+            message.reply(levelUpEmbed);
 
         }
 
